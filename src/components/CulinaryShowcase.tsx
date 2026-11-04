@@ -13,6 +13,7 @@ interface Dish {
   category: 'Paulistano' | 'Tailandês' | 'Doces & Sobremesas';
   badgePt: string;
   badgeTh: string;
+  image: string;
   descPt: string;
   descTh: string;
   coupleNotePt: string;
@@ -45,6 +46,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Paulistano',
       badgePt: 'Almoço Tradicional de Sábado',
       badgeTh: 'มื้อกลางวันวันเสาร์สุดคลาสสิก',
+      image: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80',
       descPt: 'Feijão preto cozido lentamente com carnes nobres selecionadas, servido com arroz branco, couve refogada no alho dourado, fatias de laranja e farofa amanteigada.',
       descTh: 'สตูถั่วดำเคี่ยวช้าๆ พร้อมเนื้อคัดพิเศษ เสิร์ฟพร้อมข้าวสวย คะน้าผัดกระเทียม ส้มสด และฟารอฟาหอมเนย',
       coupleNotePt: 'Vinicius mal pode esperar para reunir a família inteira em São Paulo e apresentar o calor da feijoada brasileira à Tawan.',
@@ -62,6 +64,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Tailandês',
       badgePt: 'A Joia das Ruas de Bangkok',
       badgeTh: 'สุดยอดอาหารริมทางกรุงเทพฯ',
+      image: 'https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=800&q=80',
       descPt: 'Noodles artesanais de arroz salteados em alta temperatura no wok com camarões graúdos do rio, tofu fresco, broto de feijão, tamarindo agridoce e amendoim torrado.',
       descTh: 'ก๋วยเตี๋ยวเส้นจันทน์ผัดในกระทะเหล็กร้อนจัด กุ้งแม่น้ำตัวโต เต้าหู้ ถั่วงอก น้ำซอสมะขามเปียกหวานอมเปรี้ยว โรยถั่วลิสงคั่วบด',
       coupleNotePt: 'Tawan prometeu levar Vinicius ao seu quiosque histórico favorito às margens do Rio Chao Phraya para provar o verdadeiro Pad Thai.',
@@ -78,6 +81,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Paulistano',
       badgePt: 'O Despertar Afetuoso',
       badgeTh: 'อาหารเช้าแห่งความอบอุ่น',
+      image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80',
       descPt: 'Polvilho artesanal com queijo curado, crocante por fora e macio por dentro, servido quentinho acompanhado de café expresso especial da Mantiqueira paulista.',
       descTh: 'ขนมปังแป้งมันสำปะหลังชีสบราซิลแท้ กรอบนอกนุ่มหนึบใน อบใหม่ๆ ทานคู่กับกาแฟคั่วบดหอมกรุ่นจากเซาเปาโล',
       coupleNotePt: 'O café da manhã perfeito nas manhãs ensolaradas em que os fusos horários finalmente dão lugar a um mesmo despertar.',
@@ -95,6 +99,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Tailandês',
       badgePt: 'A Sopa Mais Aromática da Ásia',
       badgeTh: 'ต้มยำกุ้งรสเลิศระดับโลก',
+      image: 'https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&w=800&q=80',
       descPt: 'Caldo perfumado e elétrico com capim-limão, folhas de kaffir, galanga tailandesa, pimentas frescas, cogumelos e camarões suculentos com toque cítrico de lima.',
       descTh: 'ซุปสมุนไพรหอมกรุ่น ทั้งตะไคร้ ใบมะกรูด ข่าแก่ พริกขี้หนูสวนสด เห็ดฟาง และกุ้งสดเนื้อแน่น รสชาติจัดจ้านถึงใจ',
       coupleNotePt: 'Um festival de aromas exóticos que Tawan considera a essência da culinária de sua terra natal.',
@@ -111,6 +116,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Paulistano',
       badgePt: 'A Glória dos Lanches de SP',
       badgeTh: 'ของว่างยอดนิยมแห่งเซาเปาโล',
+      image: 'https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?auto=format&fit=crop&w=800&q=80',
       descPt: 'Massa aveludada recheada com peito de frango delicadamente desfiado e temperado, generosa camada de Catupiry legítimo, empanada e frita até a perfeição dourada.',
       descTh: 'แป้งนุ่มเนียนสอดไส้อกไก่ฉีกปรุงรสและชีสคาตูปีรีแท้ ชุบเกล็ดขนมปังทอดกรอบสีทองอร่าม',
       coupleNotePt: 'O primeiro petisco paulistano que Vinicius quer colocar nas mãos de Tawan assim que ela descer do voo!',
@@ -128,6 +134,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Tailandês',
       badgePt: 'Noodles no Curry Dourado',
       badgeTh: 'ข้าวซอยไก่รสละมุน',
+      image: 'https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=800&q=80',
       descPt: 'Sopa aveludada de curry com leite de coco cremoso, macarrão de ovo macio, coxa de frango desmanchando e coberta por crocantes ninhos de noodles fritos com chalotas.',
       descTh: 'แกงกะหรี่กะทิหอมนวล เส้นบะหมี่ไข่เหนียวนุ่ม น่องไก่ตุ๋นเปื่อย ท็อปด้วยหมี่กรอบ หอมแดง และมะนาวสด',
       coupleNotePt: 'O prato reconfortante predileto de Tawan para os dias em que a saudade aperta e pede um abraço no prato.',
@@ -144,6 +151,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Paulistano',
       badgePt: 'Patrimônio Matinal de São Paulo',
       badgeTh: 'วิถีตลาดนัดวันอาทิตย์เซาเปาโล',
+      image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=800&q=80',
       descPt: 'Pastel crocante e cheio de bolhas estaladiças frito na hora com recheio fumegante, acompanhado do clássico caldo de cana geladíssimo batido com gotas de limão.',
       descTh: 'พายทอดกรอบพองฟู ไส้เนื้อสับหรือชีสร้อนๆ ทานคู่กับน้ำอ้อยคั้นสดเย็นเฉียบบีบมะนาวตัดรส',
       coupleNotePt: 'Um passeio clássico pelas feiras livres de domingo de São Paulo que o casal planeja vivenciar juntos.',
@@ -161,6 +169,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Tailandês',
       badgePt: 'Eleito Prato Nº 1 do Mundo',
       badgeTh: 'แกงมัสมั่นยอดเยี่ยมระดับโลก',
+      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80',
       descPt: 'Curry aromático e encorpado com canela, cardamomo, anis estrelado, batatas aveludadas, castanhas de caju e carne cozida lentamente por horas.',
       descTh: 'แกงกะหรี่เครื่องเทศหอมหวาน อบเชย ลูกกระวาน มันฝรั่งเนื้อเนียน เม็ดมะม่วงหิมพานต์ และเนื้อตุ๋นเปื่อยนุ่ม',
       coupleNotePt: 'Uma sinfonia de sabores complexos que expressa a paciência e a riqueza da cultura do Reino da Tailândia.',
@@ -177,6 +186,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Doces & Sobremesas',
       badgePt: 'O Doce Oficial do Afeto',
       badgeTh: 'ขนมหวานแทนใจแห่งบราซิล',
+      image: 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=800&q=80',
       descPt: 'Leite condensado reduzido lentamente com cacau fino e manteiga nobre, enrolado à mão com granulados crocantes belgas e beijinho de coco fresco ralado.',
       descTh: 'นมข้นหวานกวนช้าๆ กับโกโก้ชั้นเลิศและเนยฝรั่งเศส ปั้นกลมคลุกเกล็ดช็อกโกแลต และขนมเบจินโญมะพร้าวขูดหวานหอม',
       coupleNotePt: 'O símbolo de carinho doce com que Vinicius vai presentear Tawan para marcar cada aniversário e reencontro.',
@@ -194,6 +204,7 @@ export const CulinaryShowcase: React.FC = () => {
       category: 'Doces & Sobremesas',
       badgePt: 'A Doçura Dourada de Bangkok',
       badgeTh: 'ของหวานยอดนิยมอันดับหนึ่ง',
+      image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80',
       descPt: 'Arroz glutinoso morno temperado com leite de coco espesso e sal marinho equilibrado, servido com fatias suculentas de manga Nam Dok Mai doce e sementes de gergelim.',
       descTh: 'ข้าวเหนียวมูนกะทิหวานมัน หอมใบเตย เสิร์ฟเคียงมะม่วงน้ำดอกไม้สุกสีทองฉ่ำหวาน โรยถั่วทองกรุบกรอบ',
       coupleNotePt: 'A sobremesa que ambos amam em uníssono, comemorando que o amor é a fruta mais doce da vida.',
@@ -341,73 +352,92 @@ export const CulinaryShowcase: React.FC = () => {
             return (
               <div
                 key={dish.id}
-                className="group relative flex-shrink-0 w-[320px] sm:w-[360px] rounded-3xl bg-gradient-to-b from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-[#E5B869]/50 p-6 flex flex-col justify-between transition-all duration-300 snap-start shadow-xl hover:-translate-y-1.5"
+                className="group relative flex-shrink-0 w-[320px] sm:w-[360px] rounded-3xl bg-gradient-to-b from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-[#E5B869]/50 overflow-hidden flex flex-col justify-between transition-all duration-300 snap-start shadow-xl hover:-translate-y-1.5"
               >
-                <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-4">
-                    <div className="flex items-center space-x-2">
-                      <span className="text-2xl">{dish.flag}</span>
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
+                {/* Real Food Photography Banner */}
+                <div className="relative w-full h-44 overflow-hidden bg-black/40">
+                  <img
+                    src={dish.image}
+                    alt={name}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#12151D] via-transparent to-black/40" />
+
+                  {/* Top Flag & Likes Badge Over Image */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
+                    <div className="flex items-center space-x-1.5 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-xs">
+                      <span className="text-base">{dish.flag}</span>
+                      <span className="font-mono text-[10px] uppercase text-white font-medium">
                         {dish.country === 'BR' ? (lang === 'th' ? 'บราซิล' : 'Brasil') : (lang === 'th' ? 'ไทย' : 'Tailândia')}
                       </span>
                     </div>
 
                     <button
                       onClick={() => handleToggleLike(dish.id)}
-                      className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono transition-all duration-300 border ${
+                      className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono backdrop-blur-md transition-all duration-300 border ${
                         isLiked
-                          ? 'bg-rose-500/20 text-rose-400 border-rose-500/40 shadow-sm'
-                          : 'bg-white/5 text-slate-400 border-white/10 hover:border-rose-400/50 hover:text-rose-300'
+                          ? 'bg-rose-500 text-white border-rose-400 shadow-md'
+                          : 'bg-black/60 text-white border-white/15 hover:border-rose-400/50'
                       }`}
                     >
-                      <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-rose-500 text-rose-500' : ''}`} />
+                      <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-white text-white' : ''}`} />
                       <span>{currentLikes}</span>
                     </button>
                   </div>
 
-                  <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#E5B869] bg-[#E5B869]/10 px-2.5 py-0.5 rounded-full mb-3">
-                    {badge}
-                  </span>
-
-                  <h3 className="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-[#E5B869] transition-colors leading-snug">
-                    {name}
-                  </h3>
-                  {dish.nativeName && lang !== 'th' && (
-                    <span className="block text-xs font-sans text-slate-400 mt-0.5 font-medium">
-                      {dish.nativeName}
+                  {/* Category Pill Over Image Bottom */}
+                  <div className="absolute bottom-2 left-3">
+                    <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#E5B869] bg-black/70 backdrop-blur-md border border-[#E5B869]/30 px-2.5 py-0.5 rounded-full">
+                      {badge}
                     </span>
-                  )}
-
-                  <p className="mt-4 text-xs sm:text-sm text-slate-300 font-sans leading-relaxed">
-                    {desc}
-                  </p>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 space-y-3">
-                  <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
-                    <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#E5B869] mb-1">
-                      <Sparkles className="w-3 h-3" />
-                      <span>{t.culinary.coupleNoteLabel}</span>
-                    </div>
-                    <p className="text-xs text-slate-300 font-serif italic leading-relaxed">
-                      "{coupleNote}"
+                {/* Content Body */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="font-display font-bold text-xl sm:text-2xl text-white group-hover:text-[#E5B869] transition-colors leading-snug">
+                      {name}
+                    </h3>
+                    {dish.nativeName && lang !== 'th' && (
+                      <span className="block text-xs font-sans text-slate-400 mt-0.5 font-medium">
+                        {dish.nativeName}
+                      </span>
+                    )}
+
+                    <p className="mt-3 text-xs sm:text-sm text-slate-300 font-sans leading-relaxed line-clamp-3">
+                      {desc}
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 pt-1">
-                    <span className="flex items-center gap-1 text-slate-300">
-                      <Star className="w-3 h-3 text-[#E5B869] fill-[#E5B869]" />
-                      {t.culinary.comfort}: {dish.profile.comfort}/10
-                    </span>
-                    <span className="flex items-center gap-1 text-emerald-400">
-                      {t.culinary.flavor}: {dish.profile.flavor}/10
-                    </span>
-                    {dish.profile.spicy && (
-                      <span className="flex items-center gap-1 text-amber-400">
-                        <Flame className="w-3 h-3" />
-                        {t.culinary.spicy}: {dish.profile.spicy}/10
+                  {/* Bottom Couple Note & Metrics */}
+                  <div className="mt-5 pt-4 border-t border-white/5 space-y-3">
+                    <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+                      <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#E5B869] mb-1">
+                        <Sparkles className="w-3 h-3" />
+                        <span>{t.culinary.coupleNoteLabel}</span>
+                      </div>
+                      <p className="text-xs text-slate-300 font-serif italic leading-relaxed">
+                        "{coupleNote}"
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-400 pt-1">
+                      <span className="flex items-center gap-1 text-slate-300">
+                        <Star className="w-3 h-3 text-[#E5B869] fill-[#E5B869]" />
+                        {t.culinary.comfort}: {dish.profile.comfort}/10
                       </span>
-                    )}
+                      <span className="flex items-center gap-1 text-emerald-400">
+                        {t.culinary.flavor}: {dish.profile.flavor}/10
+                      </span>
+                      {dish.profile.spicy && (
+                        <span className="flex items-center gap-1 text-amber-400">
+                          <Flame className="w-3 h-3" />
+                          {t.culinary.spicy}: {dish.profile.spicy}/10
+                        </span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
