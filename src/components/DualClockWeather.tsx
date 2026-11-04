@@ -1,0 +1,378 @@
+import React, { useState, useEffect } from 'react';
+import { Clock, Sun, Moon, Cloud, CloudRain, Wind, Droplets, MapPin, Sparkles, Compass } from 'lucide-react';
+
+interface WeatherData {
+  temp: number;
+  humidity: number;
+  windSpeed: number;
+  condition: string;
+  isDay: boolean;
+  code: number;
+}
+
+export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = ({ variant = 'hero' }) => {
+  const [spTime, setSpTime] = useState<{ time: string; seconds: string; date: string; hour: number }>({
+    time: '--:--',
+    seconds: '--',
+    date: 'Carregando...',
+    hour: 12
+  });
+
+  const [bkkTime, setBkkTime] = useState<{ time: string; seconds: string; date: string; hour: number }>({
+    time: '--:--',
+    seconds: '--',
+    date: 'Carregando...',
+    hour: 22
+  });
+
+  const [spWeather, setSpWeather] = useState<WeatherData>({
+    temp: 24,
+    humidity: 68,
+    windSpeed: 14,
+    condition: 'Tarde Suave',
+    isDay: true,
+    code: 1
+  });
+
+  const [bkkWeather, setBkkWeather] = useState<WeatherData>({
+    temp: 29,
+    humidity: 78,
+    windSpeed: 9,
+    condition: 'Noite Tropical Quente',
+    isDay: false,
+    code: 1
+  });
+
+  const [loadingWeather, setLoadingWeather] = useState(true);
+
+  // WMO Weather code interpreter
+  const parseWmo = (code: number, isDay: boolean): string => {
+    switch (code) {
+      case 0:
+        return isDay ? 'Céu Aberto e Ensolarado' : 'Noite Estrelada e Limpa';
+      case 1:
+      case 2:
+        return isDay ? 'Parcialmente Ensolarado' : 'Céu com Nuvens Suaves';
+      case 3:
+        return 'Céu Nublado';
+      case 45:
+      case 48:
+        return 'Névoa Úmida';
+      case 51:
+      case 53:
+      case 55:
+        return 'Garoa Típica';
+      case 61:
+      case 63:
+      case 65:
+        return 'Chuva Tropical Aconchegante';
+      case 80:
+      case 81:
+      case 82:
+        return 'Pancadas Rápidas de Verão';
+      case 95:
+      case 96:
+      case 99:
+        return 'Trovoadas Tropicais';
+      default:
+        return isDay ? 'Clima Agradável' : 'Noite Amistosa';
+    }
+  };
+
+  // Live clocks ticker
+  useEffect(() => {
+    const updateClocks = () => {
+      const now = new Date();
+
+      // São Paulo (America/Sao_Paulo, UTC-3)
+      const spFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      const spSecFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        second: '2-digit'
+      });
+      const spDateFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short'
+      });
+      const spHourFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        hour: 'numeric',
+        hour12: false
+      });
+
+      // Bangkok (Asia/Bangkok, UTC+7)
+      const bkkFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'Asia/Bangkok',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      });
+      const bkkSecFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'Asia/Bangkok',
+        second: '2-digit'
+      });
+      const bkkDateFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'Asia/Bangkok',
+        weekday: 'short',
+        day: 'numeric',
+        month: 'short'
+      });
+      const bkkHourFormatter = new Intl.DateTimeFormat('pt-BR', {
+        timeZone: 'Asia/Bangkok',
+        hour: 'numeric',
+        hour12: false
+      });
+
+      setSpTime({
+        time: spFormatter.format(now),
+        seconds: spSecFormatter.format(now),
+        date: spDateFormatter.format(now),
+        hour: parseInt(spHourFormatter.format(now), 10)
+      });
+
+      setBkkTime({
+        time: bkkFormatter.format(now),
+        seconds: bkkSecFormatter.format(now),
+        date: bkkDateFormatter.format(now),
+        hour: parseInt(bkkHourFormatter.format(now), 10)
+      });
+    };
+
+    updateClocks();
+    const clockInterval = setInterval(updateClocks, 1000);
+    return () => clearInterval(clockInterval);
+  }, []);
+
+  // Fetch live weather data from Open-Meteo
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        setLoadingWeather(true);
+        // SP
+        const spRes = await fetch(
+          'https://api.open-meteo.com/v1/forecast?latitude=-23.5505&longitude=-46.6333&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m'
+        );
+        if (spRes.ok) {
+          const spData = await spRes.json();
+          const current = spData.current;
+          setSpWeather({
+            temp: Math.round(current.temperature_2m),
+            humidity: current.relative_humidity_2m,
+            windSpeed: Math.round(current.wind_speed_10m),
+            condition: parseWmo(current.weather_code, current.is_day === 1),
+            isDay: current.is_day === 1,
+            code: current.weather_code
+          });
+        }
+
+        // Bangkok
+        const bkkRes = await fetch(
+          'https://api.open-meteo.com/v1/forecast?latitude=13.7563&longitude=100.5018&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m'
+        );
+        if (bkkRes.ok) {
+          const bkkData = await bkkRes.json();
+          const current = bkkData.current;
+          setBkkWeather({
+            temp: Math.round(current.temperature_2m),
+            humidity: current.relative_humidity_2m,
+            windSpeed: Math.round(current.wind_speed_10m),
+            condition: parseWmo(current.weather_code, current.is_day === 1),
+            isDay: current.is_day === 1,
+            code: current.weather_code
+          });
+        }
+      } catch (err) {
+        console.warn('Weather fetch fallback active', err);
+      } finally {
+        setLoadingWeather(false);
+      }
+    };
+
+    fetchWeather();
+    // Poll weather every 10 minutes
+    const weatherTimer = setInterval(fetchWeather, 600000);
+    return () => clearInterval(weatherTimer);
+  }, []);
+
+  const getWeatherIcon = (code: number, isDay: boolean) => {
+    if (code >= 51 && code <= 82) return <CloudRain className="w-5 h-5 text-sky-400 animate-bounce" />;
+    if (code >= 1 && code <= 3) return <Cloud className="w-5 h-5 text-slate-300" />;
+    return isDay ? (
+      <Sun className="w-5 h-5 text-amber-400 animate-spin" style={{ animationDuration: '24s' }} />
+    ) : (
+      <Moon className="w-5 h-5 text-indigo-300" />
+    );
+  };
+
+  return (
+    <div className="w-full">
+      {/* Cards de Fuso Horário & Clima */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+        {/* Card 1: São Paulo (Vinicius) */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-emerald-500/40 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
+          {/* Subtle Brazil Emerald Accent Glow */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/20 transition-all duration-500" />
+
+          {/* Header do Card */}
+          <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
+            <div className="flex items-center space-x-2">
+              <span className="text-xl">🇧🇷</span>
+              <div>
+                <h4 className="text-sm font-semibold tracking-wide text-white flex items-center gap-1.5">
+                  São Paulo, Brasil
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                </h4>
+                <p className="text-[11px] font-mono text-emerald-400/90 tracking-wider">
+                  CASA DO VINICIUS • UTC-3
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded-full text-slate-300 border border-white/5">
+              <MapPin className="w-3 h-3 text-emerald-400" />
+              <span>23.55° S, 46.63° W</span>
+            </div>
+          </div>
+
+          {/* Time & Weather Display */}
+          <div className="flex items-baseline justify-between mb-4">
+            <div>
+              <div className="flex items-baseline space-x-1 font-mono">
+                <span className="text-4xl lg:text-5xl font-bold tracking-tight text-white font-display">
+                  {spTime.time}
+                </span>
+                <span className="text-lg lg:text-xl text-emerald-400/90 font-mono font-medium">
+                  :{spTime.seconds}
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 capitalize mt-1 font-sans">
+                {spTime.date}
+              </p>
+            </div>
+
+            {/* Weather Box */}
+            <div className="text-right">
+              <div className="flex items-center justify-end space-x-2">
+                {getWeatherIcon(spWeather.code, spWeather.isDay)}
+                <span className="text-2xl lg:text-3xl font-semibold text-white font-mono">
+                  {spWeather.temp}°C
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 font-sans mt-0.5 max-w-[150px] truncate">
+                {spWeather.condition}
+              </p>
+            </div>
+          </div>
+
+          {/* Micro Telemetry Bar */}
+          <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <div className="flex items-center gap-1">
+              <Droplets className="w-3 h-3 text-sky-400" />
+              <span>Umidade: {spWeather.humidity}%</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Wind className="w-3 h-3 text-slate-400" />
+              <span>Vento: {spWeather.windSpeed} km/h</span>
+            </div>
+            <div className="flex items-center gap-1 text-emerald-400/80">
+              {spWeather.isDay ? 'Dia Vivo' : 'Noite Suave'}
+            </div>
+          </div>
+        </div>
+
+        {/* Card 2: Bangkok (Tawan) */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-[#E5B869]/40 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
+          {/* Subtle Thai Gold Accent Glow */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#E5B869]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#E5B869]/20 transition-all duration-500" />
+
+          {/* Header do Card */}
+          <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">
+            <div className="flex items-center space-x-2">
+              <span className="text-xl">🇹🇭</span>
+              <div>
+                <h4 className="text-sm font-semibold tracking-wide text-white flex items-center gap-1.5">
+                  Bangkok, Tailândia
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E5B869] animate-pulse" />
+                </h4>
+                <p className="text-[11px] font-mono text-[#E5B869]/90 tracking-wider">
+                  CASA DA TAWAN • UTC+7
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-[11px] font-mono bg-white/5 px-2.5 py-1 rounded-full text-slate-300 border border-white/5">
+              <MapPin className="w-3 h-3 text-[#E5B869]" />
+              <span>13.75° N, 100.50° E</span>
+            </div>
+          </div>
+
+          {/* Time & Weather Display */}
+          <div className="flex items-baseline justify-between mb-4">
+            <div>
+              <div className="flex items-baseline space-x-1 font-mono">
+                <span className="text-4xl lg:text-5xl font-bold tracking-tight text-white font-display">
+                  {bkkTime.time}
+                </span>
+                <span className="text-lg lg:text-xl text-[#E5B869]/90 font-mono font-medium">
+                  :{bkkTime.seconds}
+                </span>
+              </div>
+              <p className="text-xs text-slate-400 capitalize mt-1 font-sans">
+                {bkkTime.date}
+              </p>
+            </div>
+
+            {/* Weather Box */}
+            <div className="text-right">
+              <div className="flex items-center justify-end space-x-2">
+                {getWeatherIcon(bkkWeather.code, bkkWeather.isDay)}
+                <span className="text-2xl lg:text-3xl font-semibold text-white font-mono">
+                  {bkkWeather.temp}°C
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 font-sans mt-0.5 max-w-[150px] truncate">
+                {bkkWeather.condition}
+              </p>
+            </div>
+          </div>
+
+          {/* Micro Telemetry Bar */}
+          <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <div className="flex items-center gap-1">
+              <Droplets className="w-3 h-3 text-sky-400" />
+              <span>Umidade: {bkkWeather.humidity}%</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Wind className="w-3 h-3 text-slate-400" />
+              <span>Vento: {bkkWeather.windSpeed} km/h</span>
+            </div>
+            <div className="flex items-center gap-1 text-[#E5B869]/80">
+              {bkkWeather.isDay ? 'Sol Dourado' : 'Noite Iluminada'}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Faixa Poética de Sincronia: 10 Horas de Fuso */}
+      <div className="mt-4 p-3.5 rounded-xl bg-gradient-to-r from-emerald-950/20 via-black to-[#E5B869]/10 border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div className="flex items-center gap-2 text-slate-300 font-mono">
+          <Clock className="w-4 h-4 text-[#E5B869]" />
+          <span>Diferença: <strong className="text-white">+10 horas</strong> (Bangkok à frente de São Paulo)</span>
+        </div>
+        <div className="flex items-center gap-2 text-slate-400 text-center sm:text-right">
+          <Sparkles className="w-3.5 h-3.5 text-[#E5B869] animate-pulse" />
+          <span>
+            {spTime.hour >= 6 && spTime.hour < 18
+              ? 'Quando Vinicius acorda em São Paulo, Tawan ilumina o entardecer de Bangkok.'
+              : 'Enquanto São Paulo descansa sob a noite, Bangkok desperta para um novo dia de luz.'}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
