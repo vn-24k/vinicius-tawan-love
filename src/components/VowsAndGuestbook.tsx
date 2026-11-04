@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Heart, Send, Sparkles, MessageSquareQuote } from 'lucide-react';
+import { Send, Sparkles, MessageSquareQuote } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
 
 interface Note {
@@ -12,6 +13,8 @@ interface Note {
 }
 
 export const VowsAndGuestbook: React.FC = () => {
+  const { lang, t } = useLanguage();
+
   const [notes, setNotes] = useState<Note[]>([
     {
       id: 1,
@@ -48,7 +51,6 @@ export const VowsAndGuestbook: React.FC = () => {
     soundEngine.playHaptic();
     setIsSubmitting(true);
 
-    // Burst celebration confetti
     confetti({
       particleCount: 80,
       spread: 70,
@@ -59,9 +61,9 @@ export const VowsAndGuestbook: React.FC = () => {
     const newNote: Note = {
       id: Date.now(),
       author: authorInput.trim(),
-      location: locationInput.trim() || 'Brasil ⇄ Tailândia',
+      location: locationInput.trim() || (lang === 'th' ? 'บราซิล ⇄ ไทย' : 'Brasil ⇄ Tailândia'),
       text: msgInput.trim(),
-      date: 'Agora mesmo'
+      date: lang === 'th' ? 'เมื่อสักครู่' : 'Agora mesmo'
     };
 
     setNotes([newNote, ...notes]);
@@ -77,19 +79,19 @@ export const VowsAndGuestbook: React.FC = () => {
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">
           <span className="text-xs font-mono tracking-widest text-[#E5B869] uppercase">
-            05 / VOTOS & MURAL DO CORAÇÃO
+            {t.vows.badge}
           </span>
           <span className="w-12 h-px bg-white/20" />
           <span className="text-xs font-mono text-slate-400">
-            PALAVRAS ETERNAS
+            {t.vows.subBadge}
           </span>
         </div>
 
         {/* Section Title */}
         <div className="mb-14">
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
-            PROMESSAS QUE ATRAVESSAM <br />
-            <span className="text-gold-gradient">O TEMPO & O ESPAÇO</span>.
+            {t.vows.titleLine1} <br />
+            <span className="text-gold-gradient">{t.vows.titleHighlight}</span>.
           </h2>
         </div>
 
@@ -101,19 +103,19 @@ export const VowsAndGuestbook: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🇧🇷</span>
                 <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-bold">
-                  VOTOS DO VINICIUS
+                  {t.vows.viniciusTitle}
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-slate-400">São Paulo, Brasil</span>
+              <span className="text-[11px] font-mono text-slate-400">{t.vows.viniciusLocation}</span>
             </div>
 
             <p className="text-base sm:text-lg text-slate-100 font-serif italic leading-relaxed mb-6">
-              "Tawan, quando olho para você, vejo meu lar. Não importa se nossos relógios marcam dez horas de diferença ou se os oceanos nos separam no mapa: meu coração só bate em sincronia com o seu. Prometo honrar seu sorriso, cuidar dos seus sonhos e fazer de cada dia nosso maior milagre."
+              {t.vows.viniciusText}
             </p>
 
             <div className="flex items-center justify-between pt-4 border-t border-white/5 text-xs font-mono text-slate-400">
               <span className="text-white font-semibold">Vinicius Silva</span>
-              <span className="text-emerald-400">Para Tawan Kannika</span>
+              <span className="text-emerald-400">{t.vows.viniciusFromTo}</span>
             </div>
           </div>
 
@@ -123,19 +125,19 @@ export const VowsAndGuestbook: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🇹🇭</span>
                 <span className="text-xs font-mono uppercase tracking-wider text-[#E5B869] font-bold">
-                  คำสาบานของตะวัน (VOTOS DA TAWAN)
+                  {t.vows.tawanTitle}
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-slate-400">Bangkok, Tailândia</span>
+              <span className="text-[11px] font-mono text-slate-400">{t.vows.tawanLocation}</span>
             </div>
 
             <p className="text-base sm:text-lg text-slate-100 font-serif italic leading-relaxed mb-6">
-              "Vinicius, você trouxe a alegria mais luminosa para minha vida. Mesmo com o mundo inteiro entre nós, nunca me senti longe do seu abraço. Prometo segurar sua mão em todas as estações, cultivar nossa paz e caminhar ao seu lado para sempre, com todo o meu amor e devoção."
+              {t.vows.tawanText}
             </p>
 
             <div className="flex items-center justify-between pt-4 border-t border-white/5 text-xs font-mono text-slate-400">
               <span className="text-white font-semibold">Tawan Kannika</span>
-              <span className="text-[#E5B869]">Para Vinicius Silva</span>
+              <span className="text-[#E5B869]">{t.vows.tawanFromTo}</span>
             </div>
           </div>
         </div>
@@ -146,14 +148,14 @@ export const VowsAndGuestbook: React.FC = () => {
             <div>
               <h3 className="text-lg font-display font-bold text-white flex items-center gap-2">
                 <MessageSquareQuote className="w-5 h-5 text-[#E5B869]" />
-                Mural de Bênçãos & Votos do Casal
+                {t.vows.muralTitle}
               </h3>
               <p className="text-xs text-slate-400 mt-1">
-                Deixe uma mensagem, um voto de carinho ou uma memória para Vinicius & Tawan.
+                {t.vows.muralSubtitle}
               </p>
             </div>
             <span className="text-xs font-mono text-[#E5B869] bg-[#E5B869]/10 px-3 py-1 rounded-full border border-[#E5B869]/20 self-start sm:self-auto">
-              {notes.length} Mensagens Registradas
+              {notes.length} {t.vows.registeredCount}
             </span>
           </div>
 
@@ -161,12 +163,12 @@ export const VowsAndGuestbook: React.FC = () => {
           <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-12 gap-4 mb-8">
             <div className="sm:col-span-4">
               <label className="block text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
-                Seu Nome
+                {t.vows.nameLabel}
               </label>
               <input
                 type="text"
                 required
-                placeholder="Ex: Família & Amigos"
+                placeholder={t.vows.namePlaceholder}
                 value={authorInput}
                 onChange={(e) => setAuthorInput(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-[#E5B869] transition-colors"
@@ -175,11 +177,11 @@ export const VowsAndGuestbook: React.FC = () => {
 
             <div className="sm:col-span-3">
               <label className="block text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
-                Sua Cidade / Origem
+                {t.vows.originLabel}
               </label>
               <input
                 type="text"
-                placeholder="Ex: São Paulo, Bangkok..."
+                placeholder={t.vows.originPlaceholder}
                 value={locationInput}
                 onChange={(e) => setLocationInput(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-[#E5B869] transition-colors"
@@ -193,18 +195,18 @@ export const VowsAndGuestbook: React.FC = () => {
                 className="w-full py-2.5 px-6 rounded-xl bg-gradient-to-r from-[#E5B869] to-[#C89B48] text-black font-semibold text-xs font-mono uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-lg"
               >
                 <Send className="w-3.5 h-3.5" />
-                <span>Registrar Mensagem & Celebrar</span>
+                <span>{t.vows.btnSubmit}</span>
               </button>
             </div>
 
             <div className="sm:col-span-12">
               <label className="block text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
-                Sua Palavra ou Voto
+                {t.vows.messageLabel}
               </label>
               <textarea
                 required
                 rows={2}
-                placeholder="Escreva seus votos de amor, felicidade e prosperidade para o casal..."
+                placeholder={t.vows.messagePlaceholder}
                 value={msgInput}
                 onChange={(e) => setMsgInput(e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-[#E5B869] transition-colors resize-none"

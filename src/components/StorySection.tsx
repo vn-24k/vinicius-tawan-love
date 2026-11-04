@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
-import { Heart, Globe, Sparkles, MessageCircle, ArrowUpRight, Activity } from 'lucide-react';
+import { Heart, Globe, Sparkles, MessageCircle, ArrowUpRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
 
 export const StorySection: React.FC = () => {
+  const { lang, t } = useLanguage();
   const [selectedWord, setSelectedWord] = useState<number>(0);
   const [heartbeatActive, setHeartbeatActive] = useState<boolean>(false);
   const [heartbeatCount, setHeartbeatCount] = useState<number>(108);
+
+  const bilingualWords = [
+    { pt: 'Amor Verdadeiro', th: 'ความรักแท้', pron: 'Khwam Rak Thae', meaningPt: 'O laço que transcende oceanos e fusos horários.', meaningTh: 'สายใยรักอันมั่นคงที่อยู่เหนือกาลเวลาและระยะทาง' },
+    { pt: 'Saudades', th: 'คิดถึง', pron: 'Khit-theung', meaningPt: 'A lembrança doce e constante a cada respirar do dia.', meaningTh: 'ความคำนึงหาอันแสนอบอุ่นในทุกลมหายใจ' },
+    { pt: 'Meu Coração', th: 'หัวใจของฉัน', pron: 'Hua-jai Khong Chan', meaningPt: 'Onde quer que você esteja, ali habita minha paz.', meaningTh: 'ไม่ว่าคุณจะอยู่ที่ใด ที่นั่นคือความสงบสุขของหัวใจฉัน' },
+    { pt: 'Para Sempre', th: 'ตลอดไป', pron: 'Ta-lot Pai', meaningPt: 'Uma promessa inquebrável, selada no tempo e no espaço.', meaningTh: 'คำมั่นสัญญาที่ไม่มีวันเปลี่ยนแปลง ตราบชั่วนิรันดร์' },
+  ];
 
   const handleHeartbeatSync = () => {
     soundEngine.playHeartbeat();
@@ -14,8 +23,8 @@ export const StorySection: React.FC = () => {
     setHeartbeatCount(prev => prev + 1);
 
     confetti({
-      particleCount: 40,
-      spread: 60,
+      particleCount: 45,
+      spread: 65,
       origin: { y: 0.6 },
       colors: ['#F43F5E', '#E5B869', '#10B981', '#FFFFFF'],
       shapes: ['circle'],
@@ -24,13 +33,6 @@ export const StorySection: React.FC = () => {
 
     setTimeout(() => setHeartbeatActive(false), 800);
   };
-
-  const bilingualWords = [
-    { pt: 'Amor Verdadeiro', th: 'ความรักแท้', pron: 'Khwam Rak Thae', meaning: 'O laço que transcende oceanos e fusos horários.' },
-    { pt: 'Saudades', th: 'คิดถึง', pron: 'Khit-theung', meaning: 'A lembrança doce e constante a cada respirar do dia.' },
-    { pt: 'Meu Coração', th: 'หัวใจของฉัน', pron: 'Hua-jai Khong Chan', meaning: 'Onde quer que você esteja, ali habita minha paz.' },
-    { pt: 'Para Sempre', th: 'ตลอดไป', pron: 'Ta-lot Pai', meaning: 'Uma promessa inquebrável, selada no tempo e no espaço.' },
-  ];
 
   return (
     <section id="historia" className="relative w-full py-24 px-6 bg-[#08080A] text-white overflow-hidden">
@@ -41,11 +43,11 @@ export const StorySection: React.FC = () => {
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">
           <span className="text-xs font-mono tracking-widest text-[#E5B869] uppercase">
-            02 / A TRAVESSIA DO AMOR
+            {t.story.badge}
           </span>
           <span className="w-12 h-px bg-white/20" />
           <span className="text-xs font-mono text-slate-400">
-            SÃO PAULO & BANGKOK
+            {t.story.subBadge}
           </span>
         </div>
 
@@ -54,7 +56,6 @@ export const StorySection: React.FC = () => {
           {/* Left Column: Visual Artwork Frame (Dual Emblem & World Rings) */}
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl bg-gradient-to-br from-[#181B24] via-[#101218] to-[#0A0C10] border border-white/10 p-8 shadow-2xl overflow-hidden group">
-              {/* Decorative background grid and rings */}
               <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
               
               {/* Top Card Bar */}
@@ -89,7 +90,7 @@ export const StorySection: React.FC = () => {
                 </div>
 
                 <h3 className="font-display text-xl font-bold text-white tracking-wide">
-                  Vinicius & Tawan
+                  {lang === 'th' ? 'วินิซิอุส และ ตะวัน' : 'Vinicius & Tawan'}
                 </h3>
                 <p className="text-xs font-mono text-slate-400 mt-1">
                   São Paulo (UTC-3) ⇄ Bangkok (UTC+7)
@@ -106,13 +107,13 @@ export const StorySection: React.FC = () => {
                     }`}
                   >
                     <Heart className={`w-3.5 h-3.5 ${heartbeatActive ? 'fill-white text-white animate-ping' : 'text-rose-400'}`} />
-                    <span>Sincronizar Batimentos</span>
+                    <span>{t.story.syncBtn}</span>
                     <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded-full font-mono text-[#E5B869]">
                       {heartbeatCount}
                     </span>
                   </button>
                   <span className="block text-[10px] font-mono text-slate-500 mt-1.5">
-                    Toque para enviar pulso cardíaco pelo Atlântico
+                    {t.story.syncSub}
                   </span>
                 </div>
               </div>
@@ -120,11 +121,11 @@ export const StorySection: React.FC = () => {
               {/* Bottom Telemetry Card */}
               <div className="bg-white/5 rounded-2xl p-4 border border-white/5 text-xs relative z-10">
                 <div className="flex items-center justify-between text-slate-400 mb-1 font-mono">
-                  <span>Conexão Iniciada</span>
-                  <span className="text-emerald-400">Permanente</span>
+                  <span>{t.story.connectionStarted}</span>
+                  <span className="text-emerald-400">{t.story.permanent}</span>
                 </div>
                 <p className="text-slate-300 text-xs italic font-serif">
-                  "O amor não consiste em olhar um para o outro, mas em olhar juntos na mesma direção através do mundo."
+                  {t.story.quote}
                 </p>
               </div>
             </div>
@@ -135,32 +136,25 @@ export const StorySection: React.FC = () => {
             {/* Tags */}
             <div className="flex flex-wrap items-center gap-2 mb-6">
               <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-emerald-400">
-                São Paulo (Brasil)
+                {t.story.tagSP}
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-[#E5B869]">
-                Bangkok (Tailândia)
+                {t.story.tagBKK}
               </span>
               <span className="px-3 py-1 rounded-full text-xs font-mono bg-white/5 border border-white/10 text-slate-300">
-                Amor Sem Fronteiras
+                {t.story.tagLove}
               </span>
             </div>
 
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-tight text-white">
-              A HARMONIA ENTRE O <br />
-              <span className="text-gold-gradient">CALOR BRASILEIRO</span> E A{' '}
-              <span className="font-serif italic font-normal text-slate-200">serenidade</span> TAILANDESA.
+              {t.story.titleLine1} <br />
+              <span className="text-gold-gradient">{t.story.titleHighlight}</span> {t.story.titleLine2}{' '}
+              <span className="font-serif italic font-normal text-slate-200">{t.story.titleItalic}</span> {t.story.titleEnd}
             </h2>
 
             <div className="mt-6 space-y-4 text-slate-300 text-sm sm:text-base font-sans leading-relaxed">
-              <p>
-                Quando o destino cruzou as vidas de <strong className="text-white">Vinicius Silva</strong> e <strong className="text-white">Tawan Kannika</strong>, 
-                um mapa mundi inteiro separava seus passos: quase metade do globo terrestre, oceanos profundos e 10 horas de diferença entre os relógios.
-              </p>
-              <p>
-                O que para muitos pareceria uma barreira intransponível transformou-se no alicerce mais poético de sua união. 
-                Cada amanhecer de Vinicius no Brasil encontra o pôr do sol dourado de Tawan na Tailândia. As conversas que atravessam fusos, 
-                o aprendizado diário das palavras e tradições de cada país, e o respeito mútuo criaram uma ponte inquebrável.
-              </p>
+              <p>{t.story.p1}</p>
+              <p>{t.story.p2}</p>
             </div>
 
             {/* Bilingual Love Dictionary */}
@@ -168,9 +162,9 @@ export const StorySection: React.FC = () => {
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono uppercase tracking-wider text-[#E5B869] flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
-                  PALAVRAS DO CORAÇÃO (PORTUGUÊS ⇄ TAILANDÊS)
+                  {t.story.dictionaryTitle}
                 </span>
-                <span className="text-[11px] font-mono text-slate-500">Toque para ouvir</span>
+                <span className="text-[11px] font-mono text-slate-500">{t.story.dictionarySub}</span>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-4">
@@ -202,11 +196,11 @@ export const StorySection: React.FC = () => {
                     <span className="text-sm font-semibold text-white">• {bilingualWords[selectedWord].pt}</span>
                   </div>
                   <p className="text-xs text-slate-300 mt-1">
-                    {bilingualWords[selectedWord].meaning}
+                    {lang === 'th' ? bilingualWords[selectedWord].meaningTh : bilingualWords[selectedWord].meaningPt}
                   </p>
                 </div>
                 <div className="text-right text-[10px] font-mono text-slate-500 uppercase tracking-widest hidden sm:block">
-                  Cultura & Conexão
+                  {lang === 'th' ? 'สองภาษา สองใจ' : 'Cultura & Conexão'}
                 </div>
               </div>
             </div>

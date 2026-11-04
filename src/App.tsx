@@ -6,14 +6,13 @@ import { CulinaryShowcase } from './components/CulinaryShowcase';
 import { CulturalAlchemy } from './components/CulturalAlchemy';
 import { VowsAndGuestbook } from './components/VowsAndGuestbook';
 import { Footer } from './components/Footer';
-import { ConnectionDrawer } from './components/ConnectionDrawer';
 import { StarfieldCanvas } from './components/StarfieldCanvas';
 import { FloatingHeartsCanvas } from './components/FloatingHeartsCanvas';
 import { MagneticMarquee } from './components/MagneticMarquee';
+import { LanguageProvider } from './context/LanguageContext';
 import { soundEngine } from './audio/CinematicAudio';
 
-export function App() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+function MainApp() {
   const [audioActive, setAudioActive] = useState(false);
 
   const handleToggleAudio = async () => {
@@ -31,9 +30,8 @@ export function App() {
 
       {/* Main Content Sections */}
       <div className="relative z-10 flex flex-col">
-        {/* Hero Section (Cream top fading into Dark Luxury, with Clocks & Live Weather) */}
+        {/* Hero Section (Cream top fading into Dark Luxury, with Clocks & Live Weather, Language Switcher) */}
         <HeroSection
-          onOpenDrawer={() => setDrawerOpen(true)}
           audioActive={audioActive}
           onToggleAudio={handleToggleAudio}
         />
@@ -62,13 +60,15 @@ export function App() {
         {/* Section 06: Editorial Luxury Footer */}
         <Footer />
       </div>
-
-      {/* Retractable Drawer Housing the 22 Uiverse Instruments */}
-      <ConnectionDrawer
-        isOpen={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      />
     </div>
+  );
+}
+
+export function App() {
+  return (
+    <LanguageProvider>
+      <MainApp />
+    </LanguageProvider>
   );
 }
 

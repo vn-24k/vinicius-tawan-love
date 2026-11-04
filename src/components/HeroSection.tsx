@@ -1,19 +1,25 @@
 import React from 'react';
-import { Volume2, VolumeX, Sparkles, Heart, Compass, Sliders, ChevronDown, ArrowRight } from 'lucide-react';
+import { Volume2, VolumeX, Heart, Compass, Languages, ArrowRight, Utensils } from 'lucide-react';
 import { DualClockWeather } from './DualClockWeather';
+import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
 
 interface HeroSectionProps {
-  onOpenDrawer: () => void;
   audioActive: boolean;
   onToggleAudio: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  onOpenDrawer,
   audioActive,
   onToggleAudio
 }) => {
+  const { lang, t, toggleLang } = useLanguage();
+
+  const handleLangClick = () => {
+    soundEngine.playHaptic();
+    toggleLang();
+  };
+
   return (
     <header className="relative w-full bg-[#FAF8F5] text-[#121316] overflow-hidden transition-colors duration-700">
       {/* Top Floating Glass Navigation */}
@@ -34,16 +40,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Center Links (Desktop) */}
-        <div className="hidden md:flex items-center space-x-8 text-xs font-mono tracking-wider uppercase text-[#4A4D57]">
-          <a href="#historia" className="hover:text-black transition-colors">História</a>
-          <a href="#clima-fusos" className="hover:text-black transition-colors">Fusos & Clima</a>
-          <a href="#capitulos" className="hover:text-black transition-colors">Capítulos</a>
-          <a href="#alquimia" className="hover:text-black transition-colors">Alquimia Cultural</a>
-          <a href="#votos" className="hover:text-black transition-colors">Votos</a>
+        <div className="hidden lg:flex items-center space-x-8 text-xs font-mono tracking-wider uppercase text-[#4A4D57]">
+          <a href="#historia" className="hover:text-black transition-colors">{t.nav.history}</a>
+          <a href="#clima-fusos" className="hover:text-black transition-colors">{t.nav.weather}</a>
+          <a href="#capitulos" className="hover:text-black transition-colors">{t.nav.chapters}</a>
+          <a href="#culinaria" className="hover:text-black transition-colors">{t.nav.culinary}</a>
+          <a href="#alquimia" className="hover:text-black transition-colors">{t.nav.alchemy}</a>
+          <a href="#votos" className="hover:text-black transition-colors">{t.nav.vows}</a>
         </div>
 
-        {/* Actions: Audio Toggle & Connection Drawer Trigger */}
+        {/* Actions: Language Switcher & Audio Toggle */}
         <div className="flex items-center space-x-3">
+          {/* Language Switcher Button */}
+          <button
+            onClick={handleLangClick}
+            title={lang === 'pt' ? 'Mudar para Tailandês (ภาษาไทย)' : 'Switch to Portuguese (Português)'}
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-white/90 text-[#111317] border border-black/10 hover:border-black/30 shadow-sm transition-all duration-300 group"
+          >
+            <Languages className="w-3.5 h-3.5 text-[#966723] group-hover:rotate-180 transition-transform duration-500" />
+            <span className="font-semibold text-slate-800">
+              {lang === 'pt' ? '🇹🇭 ภาษาไทย' : '🇧🇷 Português'}
+            </span>
+          </button>
+
           {/* Audio Engine Button */}
           <button
             onClick={onToggleAudio}
@@ -57,56 +76,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {audioActive ? (
               <>
                 <Volume2 className="w-3.5 h-3.5 text-[#E5B869] animate-pulse" />
-                <span className="hidden sm:inline">Som Ativo</span>
+                <span className="hidden sm:inline">{t.nav.soundActive}</span>
               </>
             ) : (
               <>
                 <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline">Trilha Sonora</span>
+                <span className="hidden sm:inline">{t.nav.soundInactive}</span>
               </>
             )}
-          </button>
-
-          {/* Retractable Drawer Button */}
-          <button
-            onClick={onOpenDrawer}
-            className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider bg-[#121316] text-[#FAF8F5] hover:bg-[#252830] transition-all duration-300 shadow-md group"
-          >
-            <Sliders className="w-3.5 h-3.5 text-[#E5B869] group-hover:rotate-45 transition-transform" />
-            <span className="hidden sm:inline">Instrumentos do Casal</span>
-            <span className="sm:hidden">Painel</span>
           </button>
         </div>
       </nav>
 
-      {/* Main Editorial Hero Frame (Inspired by reference template) */}
+      {/* Main Editorial Hero Frame */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 pt-12 pb-20 lg:pt-16 lg:pb-28">
         {/* Top Minimal Badge */}
         <div className="flex items-center space-x-3 mb-6">
           <span className="text-xs font-mono tracking-widest text-[#888D9B] uppercase">
-            01 / AMOR TRANSCONTINENTAL
+            {t.hero.badge}
           </span>
           <span className="w-12 h-px bg-black/15" />
           <span className="text-xs font-mono text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-full flex items-center gap-1">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            CONEXÃO VIVA
+            {t.hero.liveConnection}
           </span>
         </div>
 
         {/* Hero Title Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
           <div className="lg:col-span-8">
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#111317] uppercase leading-[1.05]">
-              DOIS CONTINENTES, <br />
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#111317] uppercase leading-[1.08]">
+              {t.hero.titleLine1} <br />
               <span className="font-serif italic font-normal text-3xl sm:text-5xl lg:text-6xl text-[#966723] lowercase tracking-normal">
-                uma só
+                {t.hero.titleItalic}
               </span>{' '}
-              FREQUÊNCIA.
+              {t.hero.titleLine2}
             </h1>
             <p className="mt-6 text-base sm:text-lg text-[#555A67] max-w-2xl font-sans leading-relaxed">
-              A união de <strong className="text-[#121316] font-semibold">Vinicius Silva</strong> (São Paulo, Brasil) e{' '}
-              <strong className="text-[#121316] font-semibold">Tawan Kannika</strong> (Bangkok, Tailândia). 
-              Separados por 16.540 km e 10 horas de fuso no mapa, mas unidos por uma devoção que não reconhece oceanos.
+              {t.hero.description}
             </p>
 
             {/* CTAs */}
@@ -115,17 +122,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 href="#historia"
                 className="px-6 py-3 rounded-full bg-[#111317] text-[#FAF8F5] text-xs font-mono uppercase tracking-wider font-semibold hover:bg-[#252830] transition-all flex items-center gap-2 shadow-lg"
               >
-                <span>Nossa Jornada</span>
+                <span>{t.hero.btnJourney}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </a>
 
-              <button
-                onClick={onOpenDrawer}
-                className="px-6 py-3 rounded-full bg-white/90 text-[#111317] border border-black/10 hover:border-black/30 text-xs font-mono uppercase tracking-wider font-semibold transition-all flex items-center gap-2"
+              <a
+                href="#culinaria"
+                className="px-6 py-3 rounded-full bg-white/90 text-[#111317] border border-black/10 hover:border-black/30 text-xs font-mono uppercase tracking-wider font-semibold transition-all flex items-center gap-2 shadow-sm"
               >
-                <Sliders className="w-3.5 h-3.5 text-[#966723]" />
-                <span>Cápsula de Memórias</span>
-              </button>
+                <Utensils className="w-3.5 h-3.5 text-[#966723]" />
+                <span>{t.hero.btnFlavors}</span>
+              </a>
             </div>
           </div>
 
@@ -134,7 +141,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="p-6 rounded-2xl bg-white border border-black/5 shadow-xl">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-[11px] font-mono tracking-widest uppercase text-[#777C8C]">
-                  DISTÂNCIA GEODÉSICA
+                  {t.hero.metricDistance}
                 </span>
                 <Compass className="w-4 h-4 text-[#966723]" />
               </div>
@@ -142,12 +149,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 16.540 <span className="text-base font-normal font-sans text-slate-500">km</span>
               </div>
               <p className="text-xs text-[#555A67] mt-1">
-                Do Atlântico Sul ao Golfo da Tailândia. O fuso de 10 horas vira ritmo e cumplicidade.
+                {t.hero.metricSub}
               </p>
               <div className="mt-4 pt-3 border-t border-black/5 flex items-center justify-between text-[11px] font-mono">
-                <span className="text-emerald-700">🇧🇷 Brasil (SP)</span>
+                <span className="text-emerald-700 font-medium">🇧🇷 Brasil (SP)</span>
                 <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 animate-pulse" />
-                <span className="text-[#966723]">🇹🇭 Tailândia (BKK)</span>
+                <span className="text-[#966723] font-medium">🇹🇭 Tailândia (BKK)</span>
               </div>
             </div>
           </div>
@@ -160,13 +167,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Section Indicator */}
           <div className="text-center mb-8">
             <span className="inline-block text-[11px] font-mono uppercase tracking-widest text-[#E5B869] bg-white/5 border border-white/10 px-4 py-1 rounded-full backdrop-blur-md">
-              HORÁRIOS EM TEMPO REAL & ESTAÇÃO METEOROLÓGICA
+              {t.hero.weatherSectionBadge}
             </span>
             <h2 className="text-2xl sm:text-3xl font-display font-bold text-white mt-3">
-              O Ritmo de São Paulo e as Cores de Bangkok
+              {t.hero.weatherSectionTitle}
             </h2>
             <p className="text-sm text-slate-400 max-w-xl mx-auto mt-1">
-              Horários exatos segundo a segundo e dados climáticos ao vivo via satélite.
+              {t.hero.weatherSectionDesc}
             </p>
           </div>
 

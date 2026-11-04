@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Sun, Moon, Cloud, CloudRain, Wind, Droplets, MapPin, Sparkles, Compass } from 'lucide-react';
+import { Clock, Sun, Moon, Cloud, CloudRain, Wind, Droplets, MapPin, Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface WeatherData {
   temp: number;
@@ -10,7 +11,9 @@ interface WeatherData {
   code: number;
 }
 
-export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = ({ variant = 'hero' }) => {
+export const DualClockWeather: React.FC = () => {
+  const { lang, t } = useLanguage();
+
   const [spTime, setSpTime] = useState<{ time: string; seconds: string; date: string; hour: number }>({
     time: '--:--',
     seconds: '--',
@@ -43,10 +46,41 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
     code: 1
   });
 
-  const [loadingWeather, setLoadingWeather] = useState(true);
+  // WMO Weather code interpreter supporting PT and TH
+  const parseWmo = (code: number, isDay: boolean, currentLang: 'pt' | 'th'): string => {
+    if (currentLang === 'th') {
+      switch (code) {
+        case 0:
+          return isDay ? 'ท้องฟ้าแจ่มใส แดดอบอุ่น' : 'ท้องฟ้าโปร่ง ดาวพร่างพราย';
+        case 1:
+        case 2:
+          return isDay ? 'มีเมฆบางส่วน แดดอ่อน' : 'ท้องฟ้ามีเมฆโปร่งสบาย';
+        case 3:
+          return 'เมฆครึ้มสบายตา';
+        case 45:
+        case 48:
+          return 'มีหมอกบางยามเช้า';
+        case 51:
+        case 53:
+        case 55:
+          return 'ฝนพรำเย็นฉ่ำ';
+        case 61:
+        case 63:
+        case 65:
+          return 'ฝนตกชุ่มฉ่ำแบบเมืองร้อน';
+        case 80:
+        case 81:
+        case 82:
+          return 'ฝนซู่ช่วงบ่าย';
+        case 95:
+        case 96:
+        case 99:
+          return 'พายุฝนฟ้าคะนอง';
+        default:
+          return isDay ? 'อากาศรื่นรมย์' : 'ค่ำคืนอันเงียบสงบ';
+      }
+    }
 
-  // WMO Weather code interpreter
-  const parseWmo = (code: number, isDay: boolean): string => {
     switch (code) {
       case 0:
         return isDay ? 'Céu Aberto e Ensolarado' : 'Noite Estrelada e Limpa';
@@ -79,23 +113,24 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
     }
   };
 
-  // Live clocks ticker
+  // Live clocks ticker with locale awareness
   useEffect(() => {
     const updateClocks = () => {
       const now = new Date();
+      const locale = lang === 'th' ? 'th-TH' : 'pt-BR';
 
       // São Paulo (America/Sao_Paulo, UTC-3)
-      const spFormatter = new Intl.DateTimeFormat('pt-BR', {
+      const spFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: 'America/Sao_Paulo',
         hour: '2-digit',
         minute: '2-digit',
         hour12: false
       });
-      const spSecFormatter = new Intl.DateTimeFormat('pt-BR', {
+      const spSecFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: 'America/Sao_Paulo',
         second: '2-digit'
       });
-      const spDateFormatter = new Intl.DateTimeFormat('pt-BR', {
+      const spDateFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: 'America/Sao_Paulo',
         weekday: 'short',
         day: 'numeric',
@@ -108,17 +143,17 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
       });
 
       // Bangkok (Asia/Bangkok, UTC+7)
-      const bkkFormatter = new Intl.DateTimeFormat('pt-BR', {
+      const bkkFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: 'Asia/Bangkok',
         hour: '2-digit',
         minute: '2-digit',
         hour12: false
       });
-      const bkkSecFormatter = new Intl.DateTimeFormat('pt-BR', {
+      const bkkSecFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: 'Asia/Bangkok',
         second: '2-digit'
       });
-      const bkkDateFormatter = new Intl.DateTimeFormat('pt-BR', {
+      const bkkDateFormatter = new Intl.DateTimeFormat(locale, {
         timeZone: 'Asia/Bangkok',
         weekday: 'short',
         day: 'numeric',
@@ -148,13 +183,12 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
     updateClocks();
     const clockInterval = setInterval(updateClocks, 1000);
     return () => clearInterval(clockInterval);
-  }, []);
+  }, [lang]);
 
   // Fetch live weather data from Open-Meteo
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        setLoadingWeather(true);
         // SP
         const spRes = await fetch(
           'https://api.open-meteo.com/v1/forecast?latitude=-23.5505&longitude=-46.6333&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m'
@@ -166,7 +200,7 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
             temp: Math.round(current.temperature_2m),
             humidity: current.relative_humidity_2m,
             windSpeed: Math.round(current.wind_speed_10m),
-            condition: parseWmo(current.weather_code, current.is_day === 1),
+            condition: parseWmo(current.weather_code, current.is_day === 1, lang),
             isDay: current.is_day === 1,
             code: current.weather_code
           });
@@ -183,23 +217,20 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
             temp: Math.round(current.temperature_2m),
             humidity: current.relative_humidity_2m,
             windSpeed: Math.round(current.wind_speed_10m),
-            condition: parseWmo(current.weather_code, current.is_day === 1),
+            condition: parseWmo(current.weather_code, current.is_day === 1, lang),
             isDay: current.is_day === 1,
             code: current.weather_code
           });
         }
       } catch (err) {
         console.warn('Weather fetch fallback active', err);
-      } finally {
-        setLoadingWeather(false);
       }
     };
 
     fetchWeather();
-    // Poll weather every 10 minutes
     const weatherTimer = setInterval(fetchWeather, 600000);
     return () => clearInterval(weatherTimer);
-  }, []);
+  }, [lang]);
 
   const getWeatherIcon = (code: number, isDay: boolean) => {
     if (code >= 51 && code <= 82) return <CloudRain className="w-5 h-5 text-sky-400 animate-bounce" />;
@@ -217,7 +248,6 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
         {/* Card 1: São Paulo (Vinicius) */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-emerald-500/40 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
-          {/* Subtle Brazil Emerald Accent Glow */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/20 transition-all duration-500" />
 
           {/* Header do Card */}
@@ -226,11 +256,11 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
               <span className="text-xl">🇧🇷</span>
               <div>
                 <h4 className="text-sm font-semibold tracking-wide text-white flex items-center gap-1.5">
-                  São Paulo, Brasil
+                  {lang === 'th' ? 'เซาเปาโล, บราซิล' : 'São Paulo, Brasil'}
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 </h4>
                 <p className="text-[11px] font-mono text-emerald-400/90 tracking-wider">
-                  CASA DO VINICIUS • UTC-3
+                  {t.clocks.spHome}
                 </p>
               </div>
             </div>
@@ -264,7 +294,7 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
                   {spWeather.temp}°C
                 </span>
               </div>
-              <p className="text-xs text-slate-300 font-sans mt-0.5 max-w-[150px] truncate">
+              <p className="text-xs text-slate-300 font-sans mt-0.5 max-w-[160px] truncate">
                 {spWeather.condition}
               </p>
             </div>
@@ -274,21 +304,20 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
           <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
             <div className="flex items-center gap-1">
               <Droplets className="w-3 h-3 text-sky-400" />
-              <span>Umidade: {spWeather.humidity}%</span>
+              <span>{t.clocks.humidity}: {spWeather.humidity}%</span>
             </div>
             <div className="flex items-center gap-1">
               <Wind className="w-3 h-3 text-slate-400" />
-              <span>Vento: {spWeather.windSpeed} km/h</span>
+              <span>{t.clocks.wind}: {spWeather.windSpeed} km/h</span>
             </div>
             <div className="flex items-center gap-1 text-emerald-400/80">
-              {spWeather.isDay ? 'Dia Vivo' : 'Noite Suave'}
+              {spWeather.isDay ? t.clocks.dayAlive : t.clocks.nightGentle}
             </div>
           </div>
         </div>
 
         {/* Card 2: Bangkok (Tawan) */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-[#E5B869]/40 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
-          {/* Subtle Thai Gold Accent Glow */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-[#E5B869]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#E5B869]/20 transition-all duration-500" />
 
           {/* Header do Card */}
@@ -297,11 +326,11 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
               <span className="text-xl">🇹🇭</span>
               <div>
                 <h4 className="text-sm font-semibold tracking-wide text-white flex items-center gap-1.5">
-                  Bangkok, Tailândia
+                  {lang === 'th' ? 'กรุงเทพมหานคร, ประเทศไทย' : 'Bangkok, Tailândia'}
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E5B869] animate-pulse" />
                 </h4>
                 <p className="text-[11px] font-mono text-[#E5B869]/90 tracking-wider">
-                  CASA DA TAWAN • UTC+7
+                  {t.clocks.bkkHome}
                 </p>
               </div>
             </div>
@@ -335,7 +364,7 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
                   {bkkWeather.temp}°C
                 </span>
               </div>
-              <p className="text-xs text-slate-300 font-sans mt-0.5 max-w-[150px] truncate">
+              <p className="text-xs text-slate-300 font-sans mt-0.5 max-w-[160px] truncate">
                 {bkkWeather.condition}
               </p>
             </div>
@@ -345,31 +374,29 @@ export const DualClockWeather: React.FC<{ variant?: 'hero' | 'standalone' }> = (
           <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400 font-mono">
             <div className="flex items-center gap-1">
               <Droplets className="w-3 h-3 text-sky-400" />
-              <span>Umidade: {bkkWeather.humidity}%</span>
+              <span>{t.clocks.humidity}: {bkkWeather.humidity}%</span>
             </div>
             <div className="flex items-center gap-1">
               <Wind className="w-3 h-3 text-slate-400" />
-              <span>Vento: {bkkWeather.windSpeed} km/h</span>
+              <span>{t.clocks.wind}: {bkkWeather.windSpeed} km/h</span>
             </div>
             <div className="flex items-center gap-1 text-[#E5B869]/80">
-              {bkkWeather.isDay ? 'Sol Dourado' : 'Noite Iluminada'}
+              {bkkWeather.isDay ? t.clocks.dayGolden : t.clocks.nightLit}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Faixa Poética de Sincronia: 10 Horas de Fuso */}
+      {/* Faixa Poética de Sincronia */}
       <div className="mt-4 p-3.5 rounded-xl bg-gradient-to-r from-emerald-950/20 via-black to-[#E5B869]/10 border border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
         <div className="flex items-center gap-2 text-slate-300 font-mono">
           <Clock className="w-4 h-4 text-[#E5B869]" />
-          <span>Diferença: <strong className="text-white">+10 horas</strong> (Bangkok à frente de São Paulo)</span>
+          <span>{t.clocks.timeDelta}</span>
         </div>
         <div className="flex items-center gap-2 text-slate-400 text-center sm:text-right">
           <Sparkles className="w-3.5 h-3.5 text-[#E5B869] animate-pulse" />
           <span>
-            {spTime.hour >= 6 && spTime.hour < 18
-              ? 'Quando Vinicius acorda em São Paulo, Tawan ilumina o entardecer de Bangkok.'
-              : 'Enquanto São Paulo descansa sob a noite, Bangkok desperta para um novo dia de luz.'}
+            {spTime.hour >= 6 && spTime.hour < 18 ? t.clocks.poeticDay : t.clocks.poeticNight}
           </span>
         </div>
       </div>

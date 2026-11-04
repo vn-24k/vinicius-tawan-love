@@ -1,51 +1,53 @@
 import React, { useState } from 'react';
-import { Sparkles, Utensils, Map, HeartHandshake, Music2, Plane } from 'lucide-react';
+import { Sparkles, Utensils, Map, HeartHandshake, Music2 } from 'lucide-react';
 import { FlightPathCanvas } from './FlightPathCanvas';
+import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
 
 export const CulturalAlchemy: React.FC = () => {
+  const { lang, t } = useLanguage();
   const [activeTab, setActiveTab] = useState<number>(0);
 
   const tabs = [
     {
       id: 0,
-      title: 'Gastronomia & Sabores',
+      title: t.alchemy.tabs.gastronomy.title,
       icon: Utensils,
-      brazilTitle: 'Sabor do Brasil (Vinicius)',
-      brazilDesc: 'A riqueza reconfortante do Pão de Queijo quentinho, a tradicional Feijoada de sábado e a doçura do Brigadeiro artesanal.',
-      thaiTitle: 'Culinária Real Tailandesa (Tawan)',
-      thaiDesc: 'O equilíbrio perfeito entre doce, picante e cítrico: Pad Thai aromático, sopa Tom Yum e o clássico Mango Sticky Rice.',
-      synergy: 'Na cozinha de Vinicius e Tawan, a pimenta dedo-de-moça brasileira encontra a Thai bird chili em jantares inesquecíveis.'
+      brazilTitle: lang === 'th' ? 'รสชาติแบบบราซิล (วินิซิอุส)' : 'Sabor do Brasil (Vinicius)',
+      brazilDesc: t.alchemy.tabs.gastronomy.brDesc,
+      thaiTitle: lang === 'th' ? 'อาหารไทยต้นตำรับ (ตะวัน)' : 'Culinária Real Tailandesa (Tawan)',
+      thaiDesc: t.alchemy.tabs.gastronomy.thDesc,
+      synergy: t.alchemy.tabs.gastronomy.synergy
     },
     {
       id: 1,
-      title: 'Cidades & Paisagens',
+      title: t.alchemy.tabs.landscapes.title,
       icon: Map,
-      brazilTitle: 'São Paulo Cosmopolita',
-      brazilDesc: 'A imponência da Avenida Paulista, a tranquilidade verde do Parque Ibirapuera e a garoa poética nas tardes da metrópole.',
-      thaiTitle: 'Bangkok Encantadora',
-      thaiDesc: 'Os templos dourados de Wat Arun, as curvas majestosas do Rio Chao Phraya e a energia vibrante dos mercados noturnos.',
-      synergy: 'Duas capitais mundiais gigantescas que pulsam 24 horas por dia, unidas por um mesmo horizonte de sonhos.'
+      brazilTitle: lang === 'th' ? 'เซาเปาโล มหานครแห่งสีสัน' : 'São Paulo Cosmopolita',
+      brazilDesc: t.alchemy.tabs.landscapes.brDesc,
+      thaiTitle: lang === 'th' ? 'กรุงเทพมหานคร เมืองฟ้าอมร' : 'Bangkok Encantadora',
+      thaiDesc: t.alchemy.tabs.landscapes.thDesc,
+      synergy: t.alchemy.tabs.landscapes.synergy
     },
     {
       id: 2,
-      title: 'Espiritualidade & Valores',
+      title: t.alchemy.tabs.spirit.title,
       icon: HeartHandshake,
-      brazilTitle: 'O Calor & Acolhimento Humano',
-      brazilDesc: 'O abraço apertado brasileiro, o riso fácil, a empatia e a lealdade inabalável com quem se ama.',
-      thaiTitle: 'A Serenidade & Respeito (Wai)',
-      thaiDesc: 'O gesto do Sawasdee, a delicadeza de alma, a gratidão budista e a tranquilidade que acalma qualquer tempestade.',
-      synergy: 'O calor do coração de Vinicius conforta Tawan; a paz e delicadeza de Tawan trazem serenidade aos dias de Vinicius.'
+      brazilTitle: lang === 'th' ? 'ความอบอุ่นและมิตรภาพบราซิล' : 'O Calor & Acolhimento Humano',
+      brazilDesc: t.alchemy.tabs.spirit.brDesc,
+      thaiTitle: lang === 'th' ? 'ความอ่อนน้อมและจิตวิญญาณแห่งสยาม' : 'A Serenidade & Respeito (Wai)',
+      thaiDesc: t.alchemy.tabs.spirit.thDesc,
+      synergy: t.alchemy.tabs.spirit.synergy
     },
     {
       id: 3,
-      title: 'Música & Frequência',
+      title: t.alchemy.tabs.music.title,
       icon: Music2,
-      brazilTitle: 'Bossa Nova & Sons Brasileiros',
-      brazilDesc: 'A melancolia elegante de Tom Jobim e João Gilberto, a sutileza do violão e o compasso do coração.',
-      thaiTitle: 'Harmonia Oriental & T-Pop',
-      thaiDesc: 'As cordas de Khim tailandês com melodias tradicionais e a leveza moderna das canções de Bangkok.',
-      synergy: 'Uma trilha sonora universal onde a língua não é barreira, porque o afeto é o idioma principal.'
+      brazilTitle: lang === 'th' ? 'บอสซาโนวาและเสียงดนตรีบราซิล' : 'Bossa Nova & Sons Brasileiros',
+      brazilDesc: t.alchemy.tabs.music.brDesc,
+      thaiTitle: lang === 'th' ? 'ดนตรีไทยและท่วงทำนองร่วมสมัย' : 'Harmonia Oriental & T-Pop',
+      thaiDesc: t.alchemy.tabs.music.thDesc,
+      synergy: t.alchemy.tabs.music.synergy
     }
   ];
 
@@ -55,22 +57,22 @@ export const CulturalAlchemy: React.FC = () => {
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">
           <span className="text-xs font-mono tracking-widest text-[#E5B869] uppercase">
-            04 / O ENCONTRO DE DOIS MUNDOS
+            {t.alchemy.badge}
           </span>
           <span className="w-12 h-px bg-white/20" />
           <span className="text-xs font-mono text-slate-400">
-            ALQUIMIA CULTURAL
+            {t.alchemy.subBadge}
           </span>
         </div>
 
         {/* Section Header */}
         <div className="mb-14">
           <h2 className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
-            QUANDO O BRASIL ENCONTRA <br />
-            <span className="text-gold-gradient">A TAILÂNDIA</span> EM CADA DETALHE.
+            {t.alchemy.titleLine1} <br />
+            <span className="text-gold-gradient">{t.alchemy.titleHighlight}</span> {t.alchemy.titleLine2}
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mt-4 font-sans leading-relaxed">
-            A beleza do amor transcontinental está em celebrar as raízes de cada um, construindo um universo único onde as duas culturas se completam.
+            {t.alchemy.subtitle}
           </p>
         </div>
 
@@ -117,7 +119,7 @@ export const CulturalAlchemy: React.FC = () => {
                   {tabs[activeTab].title}
                 </span>
                 <span className="text-[11px] font-mono text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/5">
-                  Harmonia Transcontinental
+                  {lang === 'th' ? 'ความลงตัวของสองซีกโลก' : 'Harmonia Transcontinental'}
                 </span>
               </div>
 
@@ -155,7 +157,7 @@ export const CulturalAlchemy: React.FC = () => {
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="w-4 h-4 text-[#E5B869]" />
                   <span className="text-xs font-mono uppercase tracking-widest text-slate-300">
-                    A Sinergia do Casal:
+                    {t.alchemy.synergyLabel}
                   </span>
                 </div>
                 <p className="text-sm text-slate-200 font-serif italic leading-relaxed">
