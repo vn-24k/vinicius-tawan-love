@@ -215,7 +215,6 @@ export const CulinaryShowcase: React.FC = () => {
   ];
 
   const handleScroll = (direction: 'left' | 'right') => {
-    soundEngine.playHaptic();
     if (scrollRef.current) {
       const scrollAmount = direction === 'left' ? -380 : 380;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
@@ -223,7 +222,6 @@ export const CulinaryShowcase: React.FC = () => {
   };
 
   const handleToggleLike = (id: number) => {
-    soundEngine.playHaptic();
     setLikedDishes(prev => {
       const isLiked = !!prev[id];
       setLikes(currentLikes => ({
@@ -291,7 +289,7 @@ export const CulinaryShowcase: React.FC = () => {
         {/* Filter Pills */}
         <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2 text-xs font-mono">
           <button
-            onClick={() => { setSelectedFilter('all'); soundEngine.playHaptic(); }}
+            onClick={() => setSelectedFilter('all')}
             className={`px-4 py-1.5 rounded-full whitespace-nowrap transition-all ${
               selectedFilter === 'all'
                 ? 'bg-[#E5B869] text-black font-semibold shadow-md'
@@ -301,7 +299,7 @@ export const CulinaryShowcase: React.FC = () => {
             {t.culinary.filterAll}
           </button>
           <button
-            onClick={() => { setSelectedFilter('BR'); soundEngine.playHaptic(); }}
+            onClick={() => setSelectedFilter('BR')}
             className={`px-4 py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 ${
               selectedFilter === 'BR'
                 ? 'bg-emerald-500 text-black font-semibold shadow-md'
@@ -312,7 +310,7 @@ export const CulinaryShowcase: React.FC = () => {
             <span>{t.culinary.filterSP}</span>
           </button>
           <button
-            onClick={() => { setSelectedFilter('TH'); soundEngine.playHaptic(); }}
+            onClick={() => setSelectedFilter('TH')}
             className={`px-4 py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 ${
               selectedFilter === 'TH'
                 ? 'bg-[#E5B869] text-black font-semibold shadow-md'
@@ -323,7 +321,7 @@ export const CulinaryShowcase: React.FC = () => {
             <span>{t.culinary.filterBKK}</span>
           </button>
           <button
-            onClick={() => { setSelectedFilter('sweet'); soundEngine.playHaptic(); }}
+            onClick={() => setSelectedFilter('sweet')}
             className={`px-4 py-1.5 rounded-full whitespace-nowrap transition-all flex items-center gap-1.5 ${
               selectedFilter === 'sweet'
                 ? 'bg-rose-500 text-white font-semibold shadow-md'

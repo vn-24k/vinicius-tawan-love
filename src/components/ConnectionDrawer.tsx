@@ -39,7 +39,6 @@ export const ConnectionDrawer: React.FC<ConnectionDrawerProps> = ({ isOpen, onCl
   if (!isOpen) return null;
 
   const triggerFeedback = (name: string) => {
-    soundEngine.playHaptic();
     setActiveNotification(`Instrumento ativado: ${name}`);
     setTimeout(() => setActiveNotification(null), 3000);
   };

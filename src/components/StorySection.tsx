@@ -173,7 +173,6 @@ export const StorySection: React.FC = () => {
                     key={idx}
                     onClick={() => {
                       setSelectedWord(idx);
-                      soundEngine.playHaptic();
                     }}
                     className={`p-3 rounded-xl border text-left transition-all duration-300 ${
                       selectedWord === idx

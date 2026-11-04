@@ -67,7 +67,6 @@ export const ChaptersSection: React.FC = () => {
           {chapters.map((ch, idx) => (
             <div
               key={idx}
-              onMouseEnter={() => soundEngine.playHaptic()}
               className={`group relative rounded-3xl bg-gradient-to-b ${ch.gradient} border border-white/10 ${ch.borderColor} p-8 flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden`}
             >
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />

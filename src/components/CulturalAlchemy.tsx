@@ -104,7 +104,6 @@ export const CulturalAlchemy: React.FC = () => {
                   key={tab.id}
                   onClick={() => {
                     setActiveTab(tab.id);
-                    soundEngine.playHaptic();
                   }}
                   className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 ${
                     isActive

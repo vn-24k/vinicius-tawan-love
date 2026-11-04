@@ -16,7 +16,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const { lang, t, toggleLang } = useLanguage();
 
   const handleLangClick = () => {
-    soundEngine.playHaptic();
     toggleLang();
   };
 
@@ -73,22 +72,31 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Audio Engine Button */}
           <button
             onClick={onToggleAudio}
-            title={audioActive ? 'Silenciar Trilha Procedural' : 'Ouvir Trilha Sonora Procedural'}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono transition-all duration-300 border ${
+            title={audioActive ? 'Pausar Trilha de Piano' : 'Ouvir Trilha Sonora Romântica (Erik Satie - Piano Solo)'}
+            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 border shadow-sm ${
               audioActive
-                ? 'bg-black text-[#FAF8F5] border-black shadow-sm'
-                : 'bg-white/80 text-[#333] border-black/10 hover:border-black/30'
+                ? 'bg-[#111317] text-[#FAF8F5] border-black shadow-md'
+                : 'bg-white/90 text-[#333] border-black/10 hover:border-black/30'
             }`}
           >
             {audioActive ? (
               <>
-                <Volume2 className="w-3.5 h-3.5 text-[#E5B869] animate-pulse" />
-                <span className="hidden sm:inline">{t.nav.soundActive}</span>
+                <div className="flex items-end gap-0.5 h-3">
+                  <span className="w-0.5 bg-[#E5B869] animate-[bounce_1s_infinite] h-2.5" />
+                  <span className="w-0.5 bg-[#E5B869] animate-[bounce_1.2s_infinite_200ms] h-3" />
+                  <span className="w-0.5 bg-[#E5B869] animate-[bounce_0.8s_infinite_400ms] h-2" />
+                </div>
+                <Volume2 className="w-3.5 h-3.5 text-[#E5B869]" />
+                <span className="text-[11px] font-medium tracking-tight">
+                  {lang === 'th' ? 'เพลงเปียโนบรรเลง' : 'Gymnopédie No. 1 • Piano'}
+                </span>
               </>
             ) : (
               <>
                 <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline">{t.nav.soundInactive}</span>
+                <span className="text-[11px] text-slate-600 hidden sm:inline">
+                  {lang === 'th' ? 'เปิดเพลงบรรเลง' : 'Tocar Trilha'}
+                </span>
               </>
             )}
           </button>
@@ -173,10 +181,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Photo Frame */}
               <div className="relative w-full h-[380px] sm:h-[460px] rounded-[2rem] overflow-hidden bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80"
+                  src="/hero-couple.jpg"
                   alt="Vinicius e Tawan - Amor Transcontinental"
                   loading="eager"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
 

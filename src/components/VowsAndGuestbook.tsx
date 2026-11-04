@@ -48,7 +48,6 @@ export const VowsAndGuestbook: React.FC = () => {
     e.preventDefault();
     if (!authorInput.trim() || !msgInput.trim()) return;
 
-    soundEngine.playHaptic();
     setIsSubmitting(true);
 
     confetti({
