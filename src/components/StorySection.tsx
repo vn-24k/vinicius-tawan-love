@@ -1,9 +1,29 @@
 import React, { useState } from 'react';
-import { Heart, Globe, Sparkles, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Heart, Globe, Sparkles, MessageCircle, ArrowUpRight, Activity } from 'lucide-react';
+import confetti from 'canvas-confetti';
 import { soundEngine } from '../audio/CinematicAudio';
 
 export const StorySection: React.FC = () => {
   const [selectedWord, setSelectedWord] = useState<number>(0);
+  const [heartbeatActive, setHeartbeatActive] = useState<boolean>(false);
+  const [heartbeatCount, setHeartbeatCount] = useState<number>(108);
+
+  const handleHeartbeatSync = () => {
+    soundEngine.playHeartbeat();
+    setHeartbeatActive(true);
+    setHeartbeatCount(prev => prev + 1);
+
+    confetti({
+      particleCount: 40,
+      spread: 60,
+      origin: { y: 0.6 },
+      colors: ['#F43F5E', '#E5B869', '#10B981', '#FFFFFF'],
+      shapes: ['circle'],
+      scalar: 1.2
+    });
+
+    setTimeout(() => setHeartbeatActive(false), 800);
+  };
 
   const bilingualWords = [
     { pt: 'Amor Verdadeiro', th: 'ความรักแท้', pron: 'Khwam Rak Thae', meaning: 'O laço que transcende oceanos e fusos horários.' },
@@ -74,6 +94,27 @@ export const StorySection: React.FC = () => {
                 <p className="text-xs font-mono text-slate-400 mt-1">
                   São Paulo (UTC-3) ⇄ Bangkok (UTC+7)
                 </p>
+
+                {/* Interactive Heartbeat Synchronizer */}
+                <div className="mt-5">
+                  <button
+                    onClick={handleHeartbeatSync}
+                    className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all duration-300 border ${
+                      heartbeatActive
+                        ? 'bg-rose-500 text-white border-rose-400 scale-105 shadow-[0_0_25px_rgba(244,63,94,0.6)]'
+                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-rose-400/60 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    <Heart className={`w-3.5 h-3.5 ${heartbeatActive ? 'fill-white text-white animate-ping' : 'text-rose-400'}`} />
+                    <span>Sincronizar Batimentos</span>
+                    <span className="text-[10px] bg-white/10 px-1.5 py-0.5 rounded-full font-mono text-[#E5B869]">
+                      {heartbeatCount}
+                    </span>
+                  </button>
+                  <span className="block text-[10px] font-mono text-slate-500 mt-1.5">
+                    Toque para enviar pulso cardíaco pelo Atlântico
+                  </span>
+                </div>
               </div>
 
               {/* Bottom Telemetry Card */}
