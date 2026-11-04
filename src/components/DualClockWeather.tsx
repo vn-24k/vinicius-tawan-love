@@ -247,7 +247,7 @@ export const DualClockWeather: React.FC = () => {
       {/* Cards de Fuso Horário & Clima */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
         {/* Card 1: São Paulo (Vinicius) */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-emerald-500/40 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#0c1a13] via-[#08130e] to-[#060c09] border border-emerald-500/30 hover:border-emerald-400/60 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/20 transition-all duration-500" />
 
           {/* Header do Card */}
@@ -317,8 +317,8 @@ export const DualClockWeather: React.FC = () => {
         </div>
 
         {/* Card 2: Bangkok (Tawan) */}
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12151D] via-[#0E1015] to-[#0A0B0E] border border-white/10 hover:border-[#E5B869]/40 p-5 lg:p-6 transition-all duration-300 group shadow-xl">
-          <div className="absolute top-0 right-0 w-32 h-32 bg-[#E5B869]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#E5B869]/20 transition-all duration-500" />
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#12241b] via-[#08130e] to-[#060c09] border border-[#d4a359]/40 hover:border-[#d4a359] p-5 lg:p-6 transition-all duration-300 group shadow-xl">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#d4a359]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#d4a359]/20 transition-all duration-500" />
 
           {/* Header do Card */}
           <div className="flex items-center justify-between border-b border-white/5 pb-3 mb-4">

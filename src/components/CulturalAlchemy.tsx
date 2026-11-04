@@ -15,11 +15,11 @@ export const CulturalAlchemy: React.FC = () => {
       icon: Utensils,
       brazilTitle: lang === 'th' ? 'รสชาติแบบบราซิล (วินิซิอุส)' : 'Sabor do Brasil (Vinicius)',
       brazilDesc: t.alchemy.tabs.gastronomy.brDesc,
-      brazilImg: 'https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80',
-      brazilImgAlt: 'Feijoada e gastronomia paulistana',
+      brazilImg: '/dishes/feijoada.jpg',
+      brazilImgAlt: 'Feijoada legítima e gastronomia paulistana',
       thaiTitle: lang === 'th' ? 'อาหารไทยต้นตำรับ (ตะวัน)' : 'Culinária Real Tailandesa (Tawan)',
       thaiDesc: t.alchemy.tabs.gastronomy.thDesc,
-      thaiImg: 'https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&w=800&q=80',
+      thaiImg: '/dishes/pad_thai.jpg',
       thaiImgAlt: 'Pad Thai e comida de rua de Bangkok',
       synergy: t.alchemy.tabs.gastronomy.synergy
     },
@@ -68,26 +68,27 @@ export const CulturalAlchemy: React.FC = () => {
   ];
 
   return (
-    <section id="alquimia" className="relative w-full py-24 px-6 bg-[#08080A] text-white">
+    <section id="alquimia" className="relative w-full py-28 px-6 bg-[#060c09] text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">
-          <span className="text-xs font-mono tracking-widest text-[#E5B869] uppercase">
+          <span className="w-2.5 h-2.5 rotate-45 bg-[#d4a359]" />
+          <span className="text-xs font-mono tracking-[0.25em] text-[#d4a359] uppercase">
             {t.alchemy.badge}
           </span>
-          <span className="w-12 h-px bg-white/20" />
-          <span className="text-xs font-mono text-slate-400">
+          <span className="w-12 h-px bg-[#d4a359]/30" />
+          <span className="text-xs font-mono text-emerald-200/60">
             {t.alchemy.subBadge}
           </span>
         </div>
 
         {/* Section Header */}
         <div className="mb-14">
-          <h2 className="font-display text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+          <h2 className="font-cinzel text-3xl sm:text-5xl font-extrabold uppercase tracking-wide text-white">
             {t.alchemy.titleLine1} <br />
             <span className="text-gold-gradient">{t.alchemy.titleHighlight}</span> {t.alchemy.titleLine2}
           </h2>
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mt-4 font-sans leading-relaxed">
+          <p className="text-sm sm:text-base text-emerald-100/70 max-w-2xl mt-4 font-sans leading-relaxed">
             {t.alchemy.subtitle}
           </p>
         </div>
@@ -95,7 +96,7 @@ export const CulturalAlchemy: React.FC = () => {
         {/* Interactive Tabs Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
           {/* Left Column: Tab Selectors */}
-          <div className="lg:col-span-4 space-y-2.5">
+          <div className="lg:col-span-4 space-y-3">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
@@ -105,22 +106,22 @@ export const CulturalAlchemy: React.FC = () => {
                   onClick={() => {
                     setActiveTab(tab.id);
                   }}
-                  className={`w-full p-4 rounded-2xl border text-left flex items-center justify-between transition-all duration-300 ${
+                  className={`w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all duration-300 ${
                     isActive
-                      ? 'bg-gradient-to-r from-white/10 to-white/5 border-[#E5B869] text-white shadow-xl'
-                      : 'bg-white/[0.02] border-white/5 text-slate-400 hover:border-white/15 hover:text-slate-200'
+                      ? 'bg-gradient-to-r from-[#163324] to-[#0c1c14] border-[#d4a359] text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+                      : 'bg-[#09150f] border-[#d4a359]/20 text-emerald-200/60 hover:border-[#d4a359]/50 hover:text-white'
                   }`}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className={`p-2 rounded-xl ${isActive ? 'bg-[#E5B869] text-black' : 'bg-white/5 text-slate-400'}`}>
+                    <div className={`p-2 rounded-lg ${isActive ? 'bg-[#d4a359] text-[#060c09]' : 'bg-[#12241b] text-[#d4a359]'}`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
                       <span className="block text-sm font-semibold text-white">{tab.title}</span>
-                      <span className="block text-[11px] font-mono text-slate-500">Brasil × Tailândia</span>
+                      <span className="block text-[11px] font-mono text-[#d4a359]/70">Brasil × Tailândia</span>
                     </div>
                   </div>
-                  <Sparkles className={`w-3.5 h-3.5 ${isActive ? 'text-[#E5B869] opacity-100' : 'opacity-0'}`} />
+                  <Sparkles className={`w-3.5 h-3.5 ${isActive ? 'text-[#d4a359] opacity-100' : 'opacity-0'}`} />
                 </button>
               );
             })}
@@ -128,12 +129,12 @@ export const CulturalAlchemy: React.FC = () => {
 
           {/* Right Column: Tab Display Card with Real Photography */}
           <div className="lg:col-span-8">
-            <div className="rounded-3xl bg-gradient-to-br from-[#12141C] via-[#0E1015] to-[#0A0C10] border border-white/10 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
-              <div className="flex items-center justify-between pb-6 border-b border-white/5 mb-6">
-                <span className="text-xs font-mono uppercase tracking-widest text-[#E5B869]">
+            <div className="rounded-3xl bg-gradient-to-br from-[#0e1f18] via-[#091510] to-[#060c09] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+              <div className="flex items-center justify-between pb-6 border-b border-[#d4a359]/20 mb-6">
+                <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#d4a359] font-bold">
                   {tabs[activeTab].title}
                 </span>
-                <span className="text-[11px] font-mono text-slate-400 bg-white/5 px-3 py-1 rounded-full border border-white/5">
+                <span className="text-[11px] font-mono text-[#d4a359] bg-[#060c09]/80 px-3 py-1 rounded-full border border-[#d4a359]/30">
                   {lang === 'th' ? 'ความลงตัวของสองซีกโลก' : 'Harmonia Transcontinental'}
                 </span>
               </div>

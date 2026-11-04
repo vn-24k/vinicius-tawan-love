@@ -7,6 +7,22 @@ export default {
   theme: {
     extend: {
       colors: {
+        jungle: {
+          950: '#060c09',
+          900: '#09130e',
+          850: '#0c1a13',
+          800: '#102219',
+          700: '#162e22',
+          600: '#1e3d2e',
+        },
+        templeGold: {
+          200: '#fae8c8',
+          300: '#f0d199',
+          400: '#e5b869',
+          500: '#d4a359',
+          600: '#b8863b',
+          700: '#946626',
+        },
         cream: {
           50: '#FAF8F5',
           100: '#F5F2EB',
@@ -23,10 +39,11 @@ export default {
         brazilEmerald: '#10B981',
       },
       fontFamily: {
+        cinzel: ['"Cinzel"', 'serif'],
         serif: ['"Cormorant Garamond"', 'serif'],
         display: ['"Syne"', 'sans-serif'],
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        mono: ['"Geist Mono"', 'monospace'],
+        mono: ['"JetBrains Mono"', '"Geist Mono"', 'monospace'],
       },
       keyframes: {
         float: {

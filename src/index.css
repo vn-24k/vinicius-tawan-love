@@ -51,6 +51,26 @@
   -webkit-text-fill-color: transparent;
 }
 
+.text-temple-gold {
+  color: #D4A359;
+}
+
+.border-temple-gold {
+  border-color: rgba(212, 163, 89, 0.35);
+}
+
+.gold-glow {
+  box-shadow: 0 0 40px -10px rgba(229, 184, 105, 0.25);
+}
+
+.emerald-glow {
+  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.2);
+}
+
+.bg-emerald-night {
+  background: radial-gradient(ellipse at top, #0f231a 0%, #08130e 55%, #050a07 100%);
+}
+
 .text-silver-gradient {
   background: linear-gradient(135deg, #FFFFFF 0%, #D4D4D8 50%, #A1A1AA 100%);
   -webkit-background-clip: text;
