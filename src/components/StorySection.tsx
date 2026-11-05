@@ -66,65 +66,86 @@ export const StorySection: React.FC = () => {
           {/* Vertical Center Axis Line */}
           <div className="hidden lg:block absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-[#d4a359]/60 via-rose-500/30 to-[#d4a359]/60" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
-            {/* Left Diamond Card: São Paulo Origin */}
-            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#120d20] border border-[#d4a359]/30 shadow-xl relative group hover:border-[#d4a359]/70 transition-all duration-500">
-              {/* Tilted Diamond Frame */}
-              <div className="w-28 h-28 my-4 rotate-45 rounded-xl border-2 border-[#d4a359] overflow-hidden shadow-2xl bg-black">
-                <img
-                  src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=500&q=80"
-                  alt="São Paulo Skyline"
-                  className="-rotate-45 scale-150 w-full h-full object-cover"
-                />
-              </div>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-[#d4a359] uppercase block mt-2">
-                ORIGEM BRASIL
-              </span>
-              <h3 className="font-cinzel text-lg font-bold text-white mt-1">
-                São Paulo Cosmopolita
-              </h3>
-              <p className="text-xs text-stone-300/80 font-sans mt-2 max-w-xs leading-relaxed">
-                {t.story.p1}
-              </p>
-              <div className="mt-4 px-3 py-1 rounded-full bg-[#07050a] border border-[#d4a359]/25 text-[10px] font-mono text-amber-300">
-                LAT: 23° 33' S // UTC-3
-              </div>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
+            {/* Left Card: São Paulo Cosmopolita (Retângulo Grande) */}
+            <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/35 shadow-2xl relative group hover:border-[#d4a359]/80 transition-all duration-500">
+              <div>
+                {/* Retângulo Grande: São Paulo Skyline e Ponte Estaiada */}
+                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#d4a359]/40 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/60">
+                  <img
+                    src="/cities/sao-paulo.jpg"
+                    alt="São Paulo - Ponte Estaiada e Skyline Iluminado"
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-108"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712] via-transparent to-black/30" />
 
-            {/* Center Master Diamond: The Sacred Union & Heartbeat Sync */}
-            <div className="flex flex-col items-center text-center p-8 rounded-3xl bg-gradient-to-b from-[#1f1433] via-[#120b20] to-[#07050a] border-2 border-[#d4a359] shadow-[0_20px_60px_rgba(212,163,89,0.25)] relative z-20">
-              {/* Pulsing Sacred Ring */}
-              <div className="relative my-4">
-                <div className="w-32 h-32 rotate-45 rounded-2xl border border-[#d4a359]/50 flex items-center justify-center bg-[#140e24] shadow-2xl">
-                  <div className="-rotate-45 text-center">
-                    <span className="font-cinzel font-extrabold text-2xl text-white tracking-widest block">
-                      V <span className="text-[#d4a359]">&</span> T
-                    </span>
-                    <span className="text-[9px] font-mono text-[#d4a359] tracking-widest uppercase block mt-0.5">
-                      16.540 KM
-                    </span>
+                  {/* Badges Flutuantes */}
+                  <div className="absolute top-3.5 left-3.5 bg-[#07050a]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#d4a359]/40 text-[11px] font-mono text-amber-300 flex items-center gap-1.5 shadow-lg">
+                    <span className="text-sm">🇧🇷</span>
+                    <span className="font-bold tracking-wider">BRASIL</span>
                   </div>
+
+                  <div className="absolute bottom-3 right-3.5 bg-[#07050a]/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 text-[10px] font-mono text-stone-300 shadow-md">
+                    23° 33' S • UTC-3
+                  </div>
+                </div>
+
+                <div className="text-center sm:text-left">
+                  <span className="text-[10px] font-mono tracking-[0.25em] text-[#d4a359] uppercase block mb-1">
+                    BERÇO DE VINICIUS
+                  </span>
+                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#d4a359] transition-colors">
+                    São Paulo Cosmopolita
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-300/85 font-sans leading-relaxed">
+                    {t.story.p1}
+                  </p>
                 </div>
               </div>
 
-              <span className="text-[10px] font-mono tracking-[0.3em] text-[#d4a359] uppercase block">
-                {lang === 'th' ? 'หัวใจที่เชื่อมถึงกัน' : 'SINCRONIA TRANSCONTINENTAL'}
-              </span>
-              <h3 className="font-cinzel text-xl font-bold text-white mt-1">
-                {lang === 'th' ? 'วินิซิอุส และ ตะวัน' : 'Vinicius & Tawan'}
-              </h3>
-              <p className="text-xs text-stone-200/90 font-serif italic mt-2 max-w-xs">
-                "{t.story.quote}"
-              </p>
+              <div className="mt-6 pt-4 border-t border-[#d4a359]/20 flex items-center justify-between text-[11px] font-mono text-amber-300/90">
+                <span>COORD: 23° 33' S, 46° 38' W</span>
+                <span className="text-stone-400">AMÉRICA DO SUL</span>
+              </div>
+            </div>
+
+            {/* Center Master Card: The Sacred Union & Heartbeat Sync */}
+            <div className="flex flex-col justify-between text-center p-8 rounded-3xl bg-gradient-to-b from-[#22153a] via-[#140c24] to-[#07050a] border-2 border-[#d4a359] shadow-[0_25px_70px_rgba(212,163,89,0.3)] relative z-20">
+              <div className="flex flex-col items-center">
+                {/* Sacred Monogram Crest */}
+                <div className="relative my-4">
+                  <div className="w-32 h-32 rotate-45 rounded-2xl border-2 border-[#d4a359] flex items-center justify-center bg-[#140e24] shadow-[0_15px_40px_rgba(212,163,89,0.25)] group-hover:rotate-90 transition-transform duration-700">
+                    <div className="-rotate-45 text-center">
+                      <span className="font-cinzel font-extrabold text-2xl text-white tracking-widest block">
+                        V <span className="text-[#d4a359]">&</span> T
+                      </span>
+                      <span className="text-[9px] font-mono text-[#d4a359] tracking-widest uppercase block mt-0.5">
+                        16.540 KM
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <span className="text-[10px] font-mono tracking-[0.3em] text-[#d4a359] uppercase block mt-2">
+                  {lang === 'th' ? 'หัวใจที่เชื่อมถึงกัน' : 'SINCRONIA TRANSCONTINENTAL'}
+                </span>
+                <h3 className="font-cinzel text-2xl font-bold text-white mt-1">
+                  {lang === 'th' ? 'วินิซิอุส และ ตะวัน' : 'Vinicius & Tawan'}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-200/90 font-serif italic mt-3 max-w-xs leading-relaxed">
+                  "{t.story.quote}"
+                </p>
+              </div>
 
               {/* Heartbeat Sync Trigger with Real Lub-Dub Audio */}
-              <div className="mt-6">
+              <div className="mt-8 pt-6 border-t border-[#d4a359]/25 flex flex-col items-center">
                 <button
                   onClick={handleHeartbeatSync}
-                  className={`inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full text-xs font-cinzel font-bold uppercase tracking-[0.15em] transition-all duration-300 border ${
+                  className={`inline-flex items-center gap-2.5 px-7 py-3 rounded-full text-xs font-cinzel font-bold uppercase tracking-[0.15em] transition-all duration-300 border ${
                     heartbeatActive
-                      ? 'bg-rose-600 text-white border-rose-400 scale-105 shadow-[0_0_30px_rgba(244,63,94,0.7)]'
-                      : 'bg-[#d4a359] text-[#090710] border-[#d4a359] hover:bg-white hover:text-black shadow-lg'
+                      ? 'bg-rose-600 text-white border-rose-400 scale-105 shadow-[0_0_35px_rgba(244,63,94,0.75)]'
+                      : 'bg-[#d4a359] text-[#090710] border-[#d4a359] hover:bg-white hover:text-black shadow-lg hover:-translate-y-0.5'
                   }`}
                 >
                   <Heart className={`w-3.5 h-3.5 ${heartbeatActive ? 'fill-white text-white animate-ping' : 'fill-current'}`} />
@@ -133,33 +154,52 @@ export const StorySection: React.FC = () => {
                     {heartbeatCount}
                   </span>
                 </button>
-                <span className="block text-[10px] font-mono text-[#d4a359]/80 mt-2">
+                <span className="block text-[10px] font-mono text-[#d4a359]/80 mt-2.5">
                   {t.story.syncSub}
                 </span>
               </div>
             </div>
 
-            {/* Right Diamond Card: Bangkok Golden Light */}
-            <div className="flex flex-col items-center text-center p-6 rounded-2xl bg-[#120d20] border border-[#d4a359]/30 shadow-xl relative group hover:border-[#d4a359]/70 transition-all duration-500">
-              {/* Tilted Diamond Frame */}
-              <div className="w-28 h-28 my-4 rotate-45 rounded-xl border-2 border-[#d4a359] overflow-hidden shadow-2xl bg-black">
-                <img
-                  src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=500&q=80"
-                  alt="Bangkok Wat Arun"
-                  className="-rotate-45 scale-150 w-full h-full object-cover"
-                />
+            {/* Right Card: Bangkok Encantadora (Retângulo Grande) */}
+            <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/35 shadow-2xl relative group hover:border-[#d4a359]/80 transition-all duration-500">
+              <div>
+                {/* Retângulo Grande: Bangkok Wat Arun ao Crepúsculo */}
+                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#d4a359]/40 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/60">
+                  <img
+                    src="/cities/bangkok.jpg"
+                    alt="Bangkok - Wat Arun e Rio Chao Phraya Iluminado"
+                    loading="lazy"
+                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-108"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712] via-transparent to-black/30" />
+
+                  {/* Badges Flutuantes */}
+                  <div className="absolute top-3.5 left-3.5 bg-[#07050a]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#d4a359]/40 text-[11px] font-mono text-[#d4a359] flex items-center gap-1.5 shadow-lg">
+                    <span className="text-sm">🇹🇭</span>
+                    <span className="font-bold tracking-wider">TAILÂNDIA</span>
+                  </div>
+
+                  <div className="absolute bottom-3 right-3.5 bg-[#07050a]/85 backdrop-blur-md px-3 py-1 rounded-full border border-white/15 text-[10px] font-mono text-stone-300 shadow-md">
+                    13° 45' N • UTC+7
+                  </div>
+                </div>
+
+                <div className="text-center sm:text-left">
+                  <span className="text-[10px] font-mono tracking-[0.25em] text-[#d4a359] uppercase block mb-1">
+                    BERÇO DE TAWAN
+                  </span>
+                  <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#d4a359] transition-colors">
+                    Bangkok Encantadora
+                  </h3>
+                  <p className="text-xs sm:text-sm text-stone-300/85 font-sans leading-relaxed">
+                    {t.story.p2}
+                  </p>
+                </div>
               </div>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-[#d4a359] uppercase block mt-2">
-                ORIGEM TAILÂNDIA
-              </span>
-              <h3 className="font-cinzel text-lg font-bold text-white mt-1">
-                Bangkok Encantadora
-              </h3>
-              <p className="text-xs text-stone-300/80 font-sans mt-2 max-w-xs leading-relaxed">
-                {t.story.p2}
-              </p>
-              <div className="mt-4 px-3 py-1 rounded-full bg-[#07050a] border border-[#d4a359]/25 text-[10px] font-mono text-[#d4a359]">
-                LAT: 13° 45' N // UTC+7
+
+              <div className="mt-6 pt-4 border-t border-[#d4a359]/20 flex items-center justify-between text-[11px] font-mono text-[#d4a359]">
+                <span>COORD: 13° 45' N, 100° 30' E</span>
+                <span className="text-stone-400">SUDESTE ASIÁTICO</span>
               </div>
             </div>
           </div>

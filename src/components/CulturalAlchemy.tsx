@@ -29,12 +29,12 @@ export const CulturalAlchemy: React.FC = () => {
       icon: Map,
       brazilTitle: lang === 'th' ? 'เซาเปาโล มหานครแห่งสีสัน' : 'São Paulo Cosmopolita',
       brazilDesc: t.alchemy.tabs.landscapes.brDesc,
-      brazilImg: 'https://images.unsplash.com/photo-1544984243-ec57ea16fe25?auto=format&fit=crop&w=800&q=80',
-      brazilImgAlt: 'Avenida Paulista e skyline de São Paulo',
+      brazilImg: '/cities/sao-paulo.jpg',
+      brazilImgAlt: 'Ponte Estaiada e skyline iluminado de São Paulo',
       thaiTitle: lang === 'th' ? 'กรุงเทพมหานคร เมืองฟ้าอมร' : 'Bangkok Encantadora',
       thaiDesc: t.alchemy.tabs.landscapes.thDesc,
-      thaiImg: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80',
-      thaiImgAlt: 'Wat Arun e o Rio Chao Phraya em Bangkok',
+      thaiImg: '/cities/bangkok.jpg',
+      thaiImgAlt: 'Wat Arun e o Rio Chao Phraya iluminado em Bangkok',
       synergy: t.alchemy.tabs.landscapes.synergy
     },
     {
@@ -143,7 +143,7 @@ export const CulturalAlchemy: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {/* Brazil Side Card */}
                 <div className="rounded-2xl bg-[#1c1228] border border-amber-500/25 overflow-hidden group">
-                  <div className="relative w-full h-44 overflow-hidden bg-black/40">
+                  <div className="relative w-full h-52 overflow-hidden bg-black/40">
                     <img
                       src={tabs[activeTab].brazilImg}
                       alt={tabs[activeTab].brazilImgAlt}
@@ -169,7 +169,7 @@ export const CulturalAlchemy: React.FC = () => {
 
                 {/* Thailand Side Card */}
                 <div className="rounded-2xl bg-[#E5B869]/10 border border-[#E5B869]/25 overflow-hidden group">
-                  <div className="relative w-full h-44 overflow-hidden bg-black/40">
+                  <div className="relative w-full h-52 overflow-hidden bg-black/40">
                     <img
                       src={tabs[activeTab].thaiImg}
                       alt={tabs[activeTab].thaiImgAlt}
