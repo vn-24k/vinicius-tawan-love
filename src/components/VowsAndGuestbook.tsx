@@ -53,7 +53,7 @@ export const VowsAndGuestbook: React.FC = () => {
       particleCount: 80,
       spread: 70,
       origin: { y: 0.7 },
-      colors: ['#d4a359', '#10B981', '#FFFFFF', '#F43F5E']
+      colors: ['#d4a359', '#F43F5E', '#FFFFFF', '#F59E0B']
     });
 
     const newNote: Note = {
@@ -72,7 +72,7 @@ export const VowsAndGuestbook: React.FC = () => {
   };
 
   return (
-    <section id="votos" className="relative w-full py-28 px-6 bg-[#060c09] text-white border-t border-[#d4a359]/20">
+    <section id="votos" className="relative w-full py-28 px-6 bg-[#0a0712] text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">
@@ -81,7 +81,7 @@ export const VowsAndGuestbook: React.FC = () => {
             {t.vows.badge}
           </span>
           <span className="w-12 h-px bg-[#d4a359]/30" />
-          <span className="text-xs font-mono text-emerald-200/60">
+          <span className="text-xs font-mono text-stone-400">
             {t.vows.subBadge}
           </span>
         </div>
@@ -97,29 +97,29 @@ export const VowsAndGuestbook: React.FC = () => {
         {/* Vows Side-by-Side (Vinicius & Tawan) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Vow Vinicius */}
-          <div className="relative rounded-2xl bg-gradient-to-b from-[#0f2218] to-[#08130e] border border-emerald-500/40 p-8 shadow-2xl group hover:border-emerald-400 transition-all duration-500">
+          <div className="relative rounded-2xl bg-gradient-to-b from-[#181129] to-[#0c0817] border border-amber-500/40 p-8 shadow-2xl group hover:border-amber-400 transition-all duration-500">
             <div className="flex items-center justify-between pb-4 border-b border-[#d4a359]/20 mb-6">
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🇧🇷</span>
-                <span className="text-xs font-mono uppercase tracking-[0.2em] text-emerald-400 font-bold">
+                <span className="text-xs font-mono uppercase tracking-[0.2em] text-amber-400 font-bold">
                   {t.vows.viniciusTitle}
                 </span>
               </div>
-              <span className="text-[11px] font-mono text-emerald-300/70">{t.vows.viniciusLocation}</span>
+              <span className="text-[11px] font-mono text-amber-300/80">{t.vows.viniciusLocation}</span>
             </div>
 
-            <p className="text-base sm:text-lg text-emerald-50 font-serif italic leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-stone-100 font-serif italic leading-relaxed mb-6">
               {t.vows.viniciusText}
             </p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-[#d4a359]/15 text-xs font-mono text-emerald-200/70">
+            <div className="flex items-center justify-between pt-4 border-t border-[#d4a359]/15 text-xs font-mono text-stone-300/80">
               <span className="text-white font-cinzel font-bold">Vinicius Silva</span>
-              <span className="text-emerald-400">{t.vows.viniciusFromTo}</span>
+              <span className="text-amber-400">{t.vows.viniciusFromTo}</span>
             </div>
           </div>
 
           {/* Vow Tawan */}
-          <div className="relative rounded-2xl bg-gradient-to-b from-[#1c2e22] to-[#08130e] border border-[#d4a359]/40 p-8 shadow-2xl group hover:border-[#d4a359] transition-all duration-500">
+          <div className="relative rounded-2xl bg-gradient-to-b from-[#221535] to-[#0c0817] border border-[#d4a359]/40 p-8 shadow-2xl group hover:border-[#d4a359] transition-all duration-500">
             <div className="flex items-center justify-between pb-4 border-b border-[#d4a359]/20 mb-6">
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🇹🇭</span>
@@ -130,11 +130,11 @@ export const VowsAndGuestbook: React.FC = () => {
               <span className="text-[11px] font-mono text-[#d4a359]/80">{t.vows.tawanLocation}</span>
             </div>
 
-            <p className="text-base sm:text-lg text-emerald-50 font-serif italic leading-relaxed mb-6">
+            <p className="text-base sm:text-lg text-stone-100 font-serif italic leading-relaxed mb-6">
               {t.vows.tawanText}
             </p>
 
-            <div className="flex items-center justify-between pt-4 border-t border-[#d4a359]/15 text-xs font-mono text-emerald-200/70">
+            <div className="flex items-center justify-between pt-4 border-t border-[#d4a359]/15 text-xs font-mono text-stone-300/80">
               <span className="text-white font-cinzel font-bold">Tawan Kannika</span>
               <span className="text-[#d4a359]">{t.vows.tawanFromTo}</span>
             </div>
@@ -142,18 +142,18 @@ export const VowsAndGuestbook: React.FC = () => {
         </div>
 
         {/* Interactive Guestbook / Mural */}
-        <div className="rounded-2xl bg-[#091510] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl">
+        <div className="rounded-2xl bg-[#120c22] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#d4a359]/20 mb-8">
             <div>
               <h3 className="text-lg font-cinzel font-bold text-white flex items-center gap-2">
                 <MessageSquareQuote className="w-5 h-5 text-[#d4a359]" />
                 {t.vows.muralTitle}
               </h3>
-              <p className="text-xs text-emerald-200/70 mt-1">
+              <p className="text-xs text-stone-300/80 mt-1">
                 {t.vows.muralSubtitle}
               </p>
             </div>
-            <span className="text-xs font-mono text-[#d4a359] bg-[#0c1a13] px-3.5 py-1.5 rounded-full border border-[#d4a359]/30 self-start sm:self-auto font-bold">
+            <span className="text-xs font-mono text-[#d4a359] bg-[#1a122e] px-3.5 py-1.5 rounded-full border border-[#d4a359]/30 self-start sm:self-auto font-bold">
               {notes.length} {t.vows.registeredCount}
             </span>
           </div>
@@ -170,7 +170,7 @@ export const VowsAndGuestbook: React.FC = () => {
                 placeholder={t.vows.namePlaceholder}
                 value={authorInput}
                 onChange={(e) => setAuthorInput(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl bg-[#060c09] border border-[#d4a359]/30 text-white placeholder-emerald-100/30 text-xs focus:outline-none focus:border-[#d4a359] transition-colors"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#07050a] border border-[#d4a359]/30 text-white placeholder-stone-500 text-xs focus:outline-none focus:border-[#d4a359] transition-colors"
               />
             </div>
 
@@ -183,7 +183,7 @@ export const VowsAndGuestbook: React.FC = () => {
                 placeholder={t.vows.originPlaceholder}
                 value={locationInput}
                 onChange={(e) => setLocationInput(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl bg-[#060c09] border border-[#d4a359]/30 text-white placeholder-emerald-100/30 text-xs focus:outline-none focus:border-[#d4a359] transition-colors"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#07050a] border border-[#d4a359]/30 text-white placeholder-stone-500 text-xs focus:outline-none focus:border-[#d4a359] transition-colors"
               />
             </div>
 
@@ -191,7 +191,7 @@ export const VowsAndGuestbook: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-2.5 px-6 rounded-xl bg-[#d4a359] text-[#060c09] font-cinzel font-bold text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-2.5 px-6 rounded-xl bg-[#d4a359] text-[#090710] font-cinzel font-bold text-xs uppercase tracking-[0.15em] hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-2 shadow-lg"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>{t.vows.btnSubmit}</span>
@@ -208,7 +208,7 @@ export const VowsAndGuestbook: React.FC = () => {
                 placeholder={t.vows.messagePlaceholder}
                 value={msgInput}
                 onChange={(e) => setMsgInput(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl bg-[#060c09] border border-[#d4a359]/30 text-white placeholder-emerald-100/30 text-xs focus:outline-none focus:border-[#d4a359] transition-colors resize-none"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#07050a] border border-[#d4a359]/30 text-white placeholder-stone-500 text-xs focus:outline-none focus:border-[#d4a359] transition-colors resize-none"
               />
             </div>
           </form>
@@ -218,9 +218,9 @@ export const VowsAndGuestbook: React.FC = () => {
             {notes.map((note) => (
               <div
                 key={note.id}
-                className="p-5 rounded-xl bg-[#060c09] border border-[#d4a359]/20 flex flex-col justify-between hover:border-[#d4a359]/50 transition-all"
+                className="p-5 rounded-xl bg-[#07050a] border border-[#d4a359]/20 flex flex-col justify-between hover:border-[#d4a359]/50 transition-all"
               >
-                <p className="text-xs text-emerald-100/90 font-sans leading-relaxed mb-4">
+                <p className="text-xs text-stone-200/90 font-sans leading-relaxed mb-4">
                   "{note.text}"
                 </p>
                 <div className="pt-3 border-t border-[#d4a359]/15 flex items-center justify-between text-[11px] font-mono">

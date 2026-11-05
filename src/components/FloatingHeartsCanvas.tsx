@@ -34,10 +34,11 @@ export const FloatingHeartsCanvas: React.FC = () => {
     window.addEventListener('resize', handleResize);
 
     const colors = [
-      'rgba(244, 63, 94, 0.7)',   // Rose #F43F5E
-      'rgba(229, 184, 105, 0.75)', // Thai Gold #E5B869
-      'rgba(16, 185, 129, 0.65)',  // Emerald #10B981
-      'rgba(255, 182, 193, 0.6)',  // Soft pink
+      'rgba(244, 63, 94, 0.75)',   // Rose Crimson #F43F5E
+      'rgba(229, 184, 105, 0.8)',  // Thai Imperial Gold #E5B869
+      'rgba(251, 113, 133, 0.7)',  // Soft Rose #FB7185
+      'rgba(254, 205, 211, 0.65)', // Romantic Blush Pink #FECDD3
+      'rgba(255, 255, 255, 0.55)', // Pure Shimmering White
     ];
 
     const particles: HeartParticle[] = [];

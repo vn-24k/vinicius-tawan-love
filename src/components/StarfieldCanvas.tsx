@@ -38,9 +38,10 @@ export const StarfieldCanvas: React.FC<{ intensity?: number }> = ({ intensity = 
 
     const palette: [number, number, number][] = [
       [229, 184, 105], // Thai Gold #E5B869
-      [16, 185, 129],  // Brazil Emerald #10B981
-      [255, 255, 255], // Pure White
-      [147, 197, 253], // Soft Blue
+      [244, 114, 182], // Romantic Rose Gold #F472B6
+      [255, 255, 255], // Pure Starlight White
+      [253, 230, 138], // Warm Champagne #FDE68A
+      [216, 180, 254], // Soft Cosmic Lavender #D8B4FE
     ];
 
     const starCount = Math.floor(220 * intensity);

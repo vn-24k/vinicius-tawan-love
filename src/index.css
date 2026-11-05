@@ -63,12 +63,12 @@
   box-shadow: 0 0 40px -10px rgba(229, 184, 105, 0.25);
 }
 
-.emerald-glow {
-  box-shadow: 0 0 50px -10px rgba(16, 185, 129, 0.2);
+.rose-glow {
+  box-shadow: 0 0 50px -10px rgba(244, 63, 94, 0.25);
 }
 
-.bg-emerald-night {
-  background: radial-gradient(ellipse at top, #0f231a 0%, #08130e 55%, #050a07 100%);
+.bg-obsidian-night {
+  background: radial-gradient(ellipse at top, #181126 0%, #0d0917 50%, #06040a 100%);
 }
 
 .text-silver-gradient {

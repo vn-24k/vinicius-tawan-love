@@ -12,9 +12,9 @@ export const ChaptersSection: React.FC = () => {
       subtitle: t.chapters.ch1.subtitle,
       desc: t.chapters.ch1.desc,
       badge: t.chapters.ch1.badge,
-      gradient: 'from-[#0f2218] via-[#091510] to-[#060c09]',
+      gradient: 'from-[#191129] via-[#0f0a1c] to-[#07050b]',
       borderColor: 'border-[#d4a359]/30 group-hover:border-[#d4a359]',
-      tagColor: 'text-emerald-400 bg-emerald-950/60 border border-emerald-500/30'
+      tagColor: 'text-amber-300 bg-amber-950/50 border border-amber-500/30'
     },
     {
       step: '02',
@@ -22,9 +22,9 @@ export const ChaptersSection: React.FC = () => {
       subtitle: t.chapters.ch2.subtitle,
       desc: t.chapters.ch2.desc,
       badge: t.chapters.ch2.badge,
-      gradient: 'from-[#1a2e22] via-[#0d1c14] to-[#060c09]',
+      gradient: 'from-[#231536] via-[#140b22] to-[#07050b]',
       borderColor: 'border-[#d4a359]/50 group-hover:border-[#d4a359]',
-      tagColor: 'text-[#d4a359] bg-[#0c1a13] border border-[#d4a359]/40'
+      tagColor: 'text-[#d4a359] bg-[#140e24] border border-[#d4a359]/40'
     },
     {
       step: '03',
@@ -32,14 +32,14 @@ export const ChaptersSection: React.FC = () => {
       subtitle: t.chapters.ch3.subtitle,
       desc: t.chapters.ch3.desc,
       badge: t.chapters.ch3.badge,
-      gradient: 'from-[#0f2218] via-[#091510] to-[#060c09]',
+      gradient: 'from-[#191129] via-[#0f0a1c] to-[#07050b]',
       borderColor: 'border-[#d4a359]/30 group-hover:border-[#d4a359]',
-      tagColor: 'text-emerald-300 bg-emerald-950/60 border border-emerald-500/30'
+      tagColor: 'text-rose-300 bg-rose-950/50 border border-rose-500/30'
     }
   ];
 
   return (
-    <section id="capitulos" className="relative w-full py-28 px-6 bg-[#08130e] text-white border-t border-[#d4a359]/20">
+    <section id="capitulos" className="relative w-full py-28 px-6 bg-[#0a0712] text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-[#d4a359]/20 pb-8">
@@ -57,12 +57,12 @@ export const ChaptersSection: React.FC = () => {
             </h2>
           </div>
 
-          <p className="text-sm text-emerald-200/70 max-w-md font-sans leading-relaxed">
+          <p className="text-sm text-stone-300/80 max-w-md font-sans leading-relaxed">
             {t.chapters.subtitle}
           </p>
         </div>
 
-        {/* 3 Luxury Itinerary Cards Inspired by Reference Template Tours */}
+        {/* 3 Luxury Itinerary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {chapters.map((ch, idx) => (
             <div
@@ -81,23 +81,23 @@ export const ChaptersSection: React.FC = () => {
                   </span>
                 </div>
 
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-emerald-300/60 block mb-2">
+                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#d4a359]/80 block mb-2">
                   {ch.subtitle}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-cinzel font-bold text-white mb-4 group-hover:text-[#d4a359] transition-colors leading-snug">
                   {ch.title}
                 </h3>
 
-                <p className="text-sm text-emerald-100/80 font-sans leading-relaxed">
+                <p className="text-sm text-stone-200/90 font-sans leading-relaxed">
                   {ch.desc}
                 </p>
               </div>
 
               <div className="mt-8 pt-6 border-t border-[#d4a359]/15 flex items-center justify-between">
-                <span className="text-xs font-mono text-emerald-300/70 group-hover:text-white transition-colors">
+                <span className="text-xs font-mono text-stone-400 group-hover:text-white transition-colors">
                   {t.chapters.preservedMemory}
                 </span>
-                <div className="w-9 h-9 rounded-full bg-[#060c09] border border-[#d4a359]/30 group-hover:bg-[#d4a359] group-hover:text-[#060c09] text-[#d4a359] flex items-center justify-center transition-all duration-300 shadow-md">
+                <div className="w-9 h-9 rounded-full bg-[#07050b] border border-[#d4a359]/30 group-hover:bg-[#d4a359] group-hover:text-[#090710] text-[#d4a359] flex items-center justify-center transition-all duration-300 shadow-md">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>

@@ -21,7 +21,7 @@ function MainApp() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#060c09] text-emerald-50 selection:bg-[#d4a359] selection:text-black">
+    <div className="relative min-h-screen bg-[#07050a] text-[#FAF8F5] selection:bg-[#d4a359] selection:text-black">
       {/* Dynamic Starfield Canvas Background from Arsenal */}
       <StarfieldCanvas intensity={1.2} />
 

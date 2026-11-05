@@ -68,7 +68,7 @@ export const CulturalAlchemy: React.FC = () => {
   ];
 
   return (
-    <section id="alquimia" className="relative w-full py-28 px-6 bg-[#060c09] text-white border-t border-[#d4a359]/20">
+    <section id="alquimia" className="relative w-full py-28 px-6 bg-[#07050a] text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">
@@ -77,7 +77,7 @@ export const CulturalAlchemy: React.FC = () => {
             {t.alchemy.badge}
           </span>
           <span className="w-12 h-px bg-[#d4a359]/30" />
-          <span className="text-xs font-mono text-emerald-200/60">
+          <span className="text-xs font-mono text-stone-400">
             {t.alchemy.subBadge}
           </span>
         </div>
@@ -88,7 +88,7 @@ export const CulturalAlchemy: React.FC = () => {
             {t.alchemy.titleLine1} <br />
             <span className="text-gold-gradient">{t.alchemy.titleHighlight}</span> {t.alchemy.titleLine2}
           </h2>
-          <p className="text-sm sm:text-base text-emerald-100/70 max-w-2xl mt-4 font-sans leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-300/80 max-w-2xl mt-4 font-sans leading-relaxed">
             {t.alchemy.subtitle}
           </p>
         </div>
@@ -108,12 +108,12 @@ export const CulturalAlchemy: React.FC = () => {
                   }}
                   className={`w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all duration-300 ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#163324] to-[#0c1c14] border-[#d4a359] text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
-                      : 'bg-[#09150f] border-[#d4a359]/20 text-emerald-200/60 hover:border-[#d4a359]/50 hover:text-white'
+                      ? 'bg-gradient-to-r from-[#221535] to-[#120b1f] border-[#d4a359] text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+                      : 'bg-[#120c20] border-[#d4a359]/20 text-stone-400 hover:border-[#d4a359]/50 hover:text-white'
                   }`}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className={`p-2 rounded-lg ${isActive ? 'bg-[#d4a359] text-[#060c09]' : 'bg-[#12241b] text-[#d4a359]'}`}>
+                    <div className={`p-2 rounded-lg ${isActive ? 'bg-[#d4a359] text-[#090710]' : 'bg-[#181128] text-[#d4a359]'}`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
@@ -129,12 +129,12 @@ export const CulturalAlchemy: React.FC = () => {
 
           {/* Right Column: Tab Display Card with Real Photography */}
           <div className="lg:col-span-8">
-            <div className="rounded-3xl bg-gradient-to-br from-[#0e1f18] via-[#091510] to-[#060c09] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div className="rounded-3xl bg-gradient-to-br from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
               <div className="flex items-center justify-between pb-6 border-b border-[#d4a359]/20 mb-6">
                 <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#d4a359] font-bold">
                   {tabs[activeTab].title}
                 </span>
-                <span className="text-[11px] font-mono text-[#d4a359] bg-[#060c09]/80 px-3 py-1 rounded-full border border-[#d4a359]/30">
+                <span className="text-[11px] font-mono text-[#d4a359] bg-[#07050a]/80 px-3 py-1 rounded-full border border-[#d4a359]/30">
                   {lang === 'th' ? 'ความลงตัวของสองซีกโลก' : 'Harmonia Transcontinental'}
                 </span>
               </div>
@@ -142,7 +142,7 @@ export const CulturalAlchemy: React.FC = () => {
               {/* Dual cultural photographic cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {/* Brazil Side Card */}
-                <div className="rounded-2xl bg-emerald-950/20 border border-emerald-500/20 overflow-hidden group">
+                <div className="rounded-2xl bg-[#1c1228] border border-amber-500/25 overflow-hidden group">
                   <div className="relative w-full h-44 overflow-hidden bg-black/40">
                     <img
                       src={tabs[activeTab].brazilImg}
@@ -150,15 +150,15 @@ export const CulturalAlchemy: React.FC = () => {
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E1318] via-transparent to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1c1228] via-transparent to-black/30" />
                     <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-xs flex items-center gap-1.5">
                       <span className="text-base">🇧🇷</span>
-                      <span className="font-mono text-[10px] text-emerald-400 font-semibold">BRASIL</span>
+                      <span className="font-mono text-[10px] text-amber-400 font-semibold">BRASIL</span>
                     </div>
                   </div>
 
                   <div className="p-5">
-                    <h4 className="text-sm font-semibold text-emerald-400 mb-2">
+                    <h4 className="text-sm font-semibold text-amber-400 mb-2">
                       {tabs[activeTab].brazilTitle}
                     </h4>
                     <p className="text-xs text-slate-300 font-sans leading-relaxed">
@@ -168,7 +168,7 @@ export const CulturalAlchemy: React.FC = () => {
                 </div>
 
                 {/* Thailand Side Card */}
-                <div className="rounded-2xl bg-[#E5B869]/10 border border-[#E5B869]/20 overflow-hidden group">
+                <div className="rounded-2xl bg-[#E5B869]/10 border border-[#E5B869]/25 overflow-hidden group">
                   <div className="relative w-full h-44 overflow-hidden bg-black/40">
                     <img
                       src={tabs[activeTab].thaiImg}

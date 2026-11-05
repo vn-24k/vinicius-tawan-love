@@ -240,10 +240,10 @@ export const CulinaryShowcase: React.FC = () => {
   });
 
   return (
-    <section id="culinaria" className="relative w-full py-28 px-6 bg-[#08130e] text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
-      {/* Background Ambient Mist & Ancient Temple Glow */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-b from-[#d4a359]/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-gradient-to-t from-emerald-500/10 to-transparent rounded-full blur-[130px] pointer-events-none" />
+    <section id="culinaria" className="relative w-full py-28 px-6 bg-[#0a0712] text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
+      {/* Background Ambient Mist & Celestial Glow */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-b from-[#d4a359]/15 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-gradient-to-t from-rose-500/10 to-transparent rounded-full blur-[130px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Top Header */}
@@ -259,7 +259,7 @@ export const CulinaryShowcase: React.FC = () => {
             <h2 className="font-cinzel text-3xl sm:text-5xl font-extrabold uppercase tracking-wide text-white">
               {t.culinary.titleLine1} <span className="text-gold-gradient">{t.culinary.titleHighlight}</span>
             </h2>
-            <p className="text-sm sm:text-base text-emerald-100/70 max-w-2xl mt-3 font-sans leading-relaxed">
+            <p className="text-sm sm:text-base text-stone-300/80 max-w-2xl mt-3 font-sans leading-relaxed">
               {t.culinary.subtitle}
             </p>
           </div>
@@ -269,14 +269,14 @@ export const CulinaryShowcase: React.FC = () => {
             <button
               onClick={() => handleScroll('left')}
               aria-label="Rolar para esquerda"
-              className="w-11 h-11 rounded-full border border-[#d4a359]/40 bg-[#0c1a13]/80 hover:bg-[#d4a359] hover:text-[#08130e] text-[#d4a359] flex items-center justify-center transition-all duration-300 shadow-lg"
+              className="w-11 h-11 rounded-full border border-[#d4a359]/40 bg-[#140e24]/80 hover:bg-[#d4a359] hover:text-[#090710] text-[#d4a359] flex items-center justify-center transition-all duration-300 shadow-lg"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => handleScroll('right')}
               aria-label="Rolar para direita"
-              className="w-11 h-11 rounded-full border border-[#d4a359]/40 bg-[#0c1a13]/80 hover:bg-[#d4a359] hover:text-[#08130e] text-[#d4a359] flex items-center justify-center transition-all duration-300 shadow-lg"
+              className="w-11 h-11 rounded-full border border-[#d4a359]/40 bg-[#140e24]/80 hover:bg-[#d4a359] hover:text-[#090710] text-[#d4a359] flex items-center justify-center transition-all duration-300 shadow-lg"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -289,8 +289,8 @@ export const CulinaryShowcase: React.FC = () => {
             onClick={() => setSelectedFilter('all')}
             className={`px-5 py-2 rounded-full whitespace-nowrap transition-all border ${
               selectedFilter === 'all'
-                ? 'bg-[#d4a359] text-[#08130e] font-bold border-[#d4a359] shadow-md'
-                : 'bg-[#0c1a13] text-emerald-200/80 border-[#d4a359]/30 hover:border-[#d4a359]'
+                ? 'bg-[#d4a359] text-[#090710] font-bold border-[#d4a359] shadow-md'
+                : 'bg-[#140e24] text-stone-300 border-[#d4a359]/30 hover:border-[#d4a359]'
             }`}
           >
             {t.culinary.filterAll}
@@ -299,8 +299,8 @@ export const CulinaryShowcase: React.FC = () => {
             onClick={() => setSelectedFilter('BR')}
             className={`px-5 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 border ${
               selectedFilter === 'BR'
-                ? 'bg-emerald-600 text-white font-bold border-emerald-400 shadow-md'
-                : 'bg-[#0c1a13] text-emerald-200/80 border-[#d4a359]/30 hover:border-[#d4a359]'
+                ? 'bg-amber-600 text-white font-bold border-amber-400 shadow-md'
+                : 'bg-[#140e24] text-stone-300 border-[#d4a359]/30 hover:border-[#d4a359]'
             }`}
           >
             <span>🇧🇷</span>
@@ -310,8 +310,8 @@ export const CulinaryShowcase: React.FC = () => {
             onClick={() => setSelectedFilter('TH')}
             className={`px-5 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 border ${
               selectedFilter === 'TH'
-                ? 'bg-[#d4a359] text-[#08130e] font-bold border-[#d4a359] shadow-md'
-                : 'bg-[#0c1a13] text-emerald-200/80 border-[#d4a359]/30 hover:border-[#d4a359]'
+                ? 'bg-[#d4a359] text-[#090710] font-bold border-[#d4a359] shadow-md'
+                : 'bg-[#140e24] text-stone-300 border-[#d4a359]/30 hover:border-[#d4a359]'
             }`}
           >
             <span>🇹🇭</span>
@@ -322,7 +322,7 @@ export const CulinaryShowcase: React.FC = () => {
             className={`px-5 py-2 rounded-full whitespace-nowrap transition-all flex items-center gap-2 border ${
               selectedFilter === 'sweet'
                 ? 'bg-rose-700 text-white font-bold border-rose-400 shadow-md'
-                : 'bg-[#0c1a13] text-emerald-200/80 border-[#d4a359]/30 hover:border-[#d4a359]'
+                : 'bg-[#140e24] text-stone-300 border-[#d4a359]/30 hover:border-[#d4a359]'
             }`}
           >
             <span>✨</span>
@@ -347,7 +347,7 @@ export const CulinaryShowcase: React.FC = () => {
             return (
               <div
                 key={dish.id}
-                className="group relative flex-shrink-0 w-[320px] sm:w-[360px] rounded-2xl bg-gradient-to-b from-[#0e1f18] via-[#091510] to-[#060c09] border border-[#d4a359]/30 hover:border-[#d4a359]/80 overflow-hidden flex flex-col justify-between transition-all duration-500 snap-start shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:-translate-y-2"
+                className="group relative flex-shrink-0 w-[320px] sm:w-[360px] rounded-2xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/30 hover:border-[#d4a359]/80 overflow-hidden flex flex-col justify-between transition-all duration-500 snap-start shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:-translate-y-2"
               >
                 {/* Real Food Photography Banner with Exact Food Depiction */}
                 <div className="relative w-full h-48 overflow-hidden bg-black/60 border-b border-[#d4a359]/20">
@@ -357,11 +357,11 @@ export const CulinaryShowcase: React.FC = () => {
                     loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e1f18] via-transparent to-black/50" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#18112a] via-transparent to-black/50" />
 
                   {/* Top Flag & Likes Badge Over Image */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                    <div className="flex items-center space-x-1.5 bg-[#060c09]/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#d4a359]/30 text-xs">
+                    <div className="flex items-center space-x-1.5 bg-[#07050a]/80 backdrop-blur-md px-3 py-1 rounded-full border border-[#d4a359]/30 text-xs">
                       <span className="text-base">{dish.flag}</span>
                       <span className="font-mono text-[10px] uppercase text-[#e5b869] font-medium tracking-wider">
                         {dish.country === 'BR' ? (lang === 'th' ? 'บราซิล' : 'Brasil') : (lang === 'th' ? 'ไทย' : 'Tailândia')}
@@ -373,7 +373,7 @@ export const CulinaryShowcase: React.FC = () => {
                       className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono backdrop-blur-md transition-all duration-300 border ${
                         isLiked
                           ? 'bg-rose-600 text-white border-rose-400 shadow-md'
-                          : 'bg-[#060c09]/80 text-[#FAF8F5] border-[#d4a359]/30 hover:border-rose-400'
+                          : 'bg-[#07050a]/80 text-[#FAF8F5] border-[#d4a359]/30 hover:border-rose-400'
                       }`}
                     >
                       <Heart className={`w-3.5 h-3.5 ${isLiked ? 'fill-white text-white' : 'text-rose-400'}`} />
@@ -383,7 +383,7 @@ export const CulinaryShowcase: React.FC = () => {
 
                   {/* Category Pill Over Image Bottom */}
                   <div className="absolute bottom-2 left-3">
-                    <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#d4a359] bg-[#060c09]/90 backdrop-blur-md border border-[#d4a359]/40 px-3 py-0.5 rounded-full">
+                    <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#d4a359] bg-[#07050a]/90 backdrop-blur-md border border-[#d4a359]/40 px-3 py-0.5 rounded-full">
                       {badge}
                     </span>
                   </div>
@@ -396,7 +396,7 @@ export const CulinaryShowcase: React.FC = () => {
                       {name}
                     </h3>
                     {dish.nativeName && lang !== 'th' && (
-                      <span className="block text-xs font-sans text-emerald-300/70 mt-0.5 font-medium">
+                      <span className="block text-xs font-sans text-amber-300/80 mt-0.5 font-medium">
                         {dish.nativeName}
                       </span>
                     )}
@@ -408,26 +408,26 @@ export const CulinaryShowcase: React.FC = () => {
 
                   {/* Bottom Couple Note & Metrics */}
                   <div className="mt-5 pt-4 border-t border-[#d4a359]/15 space-y-3">
-                    <div className="p-3.5 rounded-xl bg-[#060c09]/60 border border-[#d4a359]/20">
+                    <div className="p-3.5 rounded-xl bg-[#07050a]/60 border border-[#d4a359]/20">
                       <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase text-[#d4a359] mb-1">
                         <Sparkles className="w-3 h-3 text-[#d4a359]" />
                         <span className="tracking-wider">{t.culinary.coupleNoteLabel}</span>
                       </div>
-                      <p className="text-xs text-emerald-100/90 font-serif italic leading-relaxed">
+                      <p className="text-xs text-stone-200/90 font-serif italic leading-relaxed">
                         "{coupleNote}"
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between text-[11px] font-mono text-emerald-200/70 pt-1">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-stone-300/80 pt-1">
                       <span className="flex items-center gap-1">
                         <Star className="w-3 h-3 text-[#d4a359] fill-[#d4a359]" />
                         {t.culinary.comfort}: {dish.profile.comfort}/10
                       </span>
-                      <span className="flex items-center gap-1 text-emerald-400">
+                      <span className="flex items-center gap-1 text-amber-400">
                         {t.culinary.flavor}: {dish.profile.flavor}/10
                       </span>
                       {dish.profile.spicy && (
-                        <span className="flex items-center gap-1 text-amber-400">
+                        <span className="flex items-center gap-1 text-rose-400">
                           <Flame className="w-3 h-3" />
                           {t.culinary.spicy}: {dish.profile.spicy}/10
                         </span>

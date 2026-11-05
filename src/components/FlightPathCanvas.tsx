@@ -72,11 +72,11 @@ export const FlightPathCanvas: React.FC = () => {
       ctx.fill();
 
       // Waypoint 1: São Paulo (GRU)
-      ctx.fillStyle = '#10B981';
+      ctx.fillStyle = '#F59E0B';
       ctx.beginPath();
       ctx.arc(p1.x, p1.y, 6, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = 'rgba(16, 185, 129, 0.3)';
+      ctx.strokeStyle = 'rgba(245, 158, 11, 0.35)';
       ctx.lineWidth = 4;
       ctx.beginPath();
       ctx.arc(p1.x, p1.y, 12 + Math.sin(t * 15) * 3, 0, Math.PI * 2);
@@ -105,7 +105,7 @@ export const FlightPathCanvas: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full rounded-2xl bg-[#0C0E14] border border-white/10 p-5 overflow-hidden">
+    <div className="relative w-full rounded-2xl bg-[#120c22] border border-[#d4a359]/25 p-5 overflow-hidden">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2">
         <div className="flex items-center gap-2">
           <Plane className="w-4 h-4 text-[#E5B869] transform rotate-45" />
@@ -113,9 +113,9 @@ export const FlightPathCanvas: React.FC = () => {
             ROTA TRANSCONTINENTAL: GRU ✈ BKK
           </h4>
         </div>
-        <div className="flex items-center gap-3 font-mono text-[11px] text-slate-400">
-          <span className="flex items-center gap-1 text-emerald-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+        <div className="flex items-center gap-3 font-mono text-[11px] text-stone-300">
+          <span className="flex items-center gap-1 text-amber-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
             GRU (-23.55°)
           </span>
           <span>16.540 KM</span>
