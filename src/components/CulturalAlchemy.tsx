@@ -3,6 +3,8 @@ import { Sparkles, Utensils, Map, HeartHandshake, Music2 } from 'lucide-react';
 import { FlightPathCanvas } from './FlightPathCanvas';
 import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
+import saoPauloImg from '../assets/cities/sao-paulo.jpg';
+import bangkokImg from '../assets/cities/bangkok.jpg';
 
 export const CulturalAlchemy: React.FC = () => {
   const { lang, t } = useLanguage();
@@ -29,11 +31,11 @@ export const CulturalAlchemy: React.FC = () => {
       icon: Map,
       brazilTitle: lang === 'th' ? 'เซาเปาโล มหานครแห่งสีสัน' : 'São Paulo Cosmopolita',
       brazilDesc: t.alchemy.tabs.landscapes.brDesc,
-      brazilImg: '/cities/sao-paulo.jpg',
+      brazilImg: saoPauloImg,
       brazilImgAlt: 'Ponte Estaiada e skyline iluminado de São Paulo',
       thaiTitle: lang === 'th' ? 'กรุงเทพมหานคร เมืองฟ้าอมร' : 'Bangkok Encantadora',
       thaiDesc: t.alchemy.tabs.landscapes.thDesc,
-      thaiImg: '/cities/bangkok.jpg',
+      thaiImg: bangkokImg,
       thaiImgAlt: 'Wat Arun e o Rio Chao Phraya iluminado em Bangkok',
       synergy: t.alchemy.tabs.landscapes.synergy
     },

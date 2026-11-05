@@ -3,6 +3,8 @@ import { Heart, Globe, Sparkles, MessageCircle, Compass } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
+import saoPauloImg from '../assets/cities/sao-paulo.jpg';
+import bangkokImg from '../assets/cities/bangkok.jpg';
 
 export const StorySection: React.FC = () => {
   const { lang, t } = useLanguage();
@@ -73,9 +75,9 @@ export const StorySection: React.FC = () => {
                 {/* Retângulo Grande: São Paulo Skyline e Ponte Estaiada */}
                 <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#d4a359]/40 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/60">
                   <img
-                    src="/cities/sao-paulo.jpg"
+                    src={saoPauloImg}
                     alt="São Paulo - Ponte Estaiada e Skyline Iluminado"
-                    loading="lazy"
+                    loading="eager"
                     className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712] via-transparent to-black/30" />
@@ -166,9 +168,9 @@ export const StorySection: React.FC = () => {
                 {/* Retângulo Grande: Bangkok Wat Arun ao Crepúsculo */}
                 <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#d4a359]/40 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/60">
                   <img
-                    src="/cities/bangkok.jpg"
+                    src={bangkokImg}
                     alt="Bangkok - Wat Arun e Rio Chao Phraya Iluminado"
-                    loading="lazy"
+                    loading="eager"
                     className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712] via-transparent to-black/30" />

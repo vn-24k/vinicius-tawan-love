@@ -2,6 +2,7 @@ import React from 'react';
 import { Volume2, VolumeX, Heart, Compass, Languages, ArrowRight, Utensils, Sparkles, Plane } from 'lucide-react';
 import { DualClockWeather } from './DualClockWeather';
 import { useLanguage } from '../context/LanguageContext';
+import heroCoupleImg from '../assets/hero-couple.jpg';
 
 interface HeroSectionProps {
   audioActive: boolean;
@@ -168,8 +169,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column (5 cols): Majestic Photo Frame of Vinicius & Tawan */}
-          <div className="lg:col-span-5 relative">
+          {/* Photo Column: Majestic Photo Frame of Vinicius & Tawan */}
+          <div className="lg:col-span-5 relative order-first lg:order-last mb-6 lg:mb-0">
             {/* Ambient Halo Glow */}
             <div className="absolute inset-0 -m-4 bg-gradient-to-tr from-[#d4a359]/30 via-rose-600/25 to-amber-500/15 rounded-[3rem] blur-2xl pointer-events-none transform -rotate-2" />
 
@@ -178,7 +179,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {/* Photo Frame */}
               <div className="relative w-full h-[420px] sm:h-[480px] lg:h-[520px] rounded-[1.8rem] overflow-hidden bg-black/80">
                 <img
-                  src="/hero-couple.jpg"
+                  src={heroCoupleImg}
                   alt="Vinicius Silva e Tawan Kannika"
                   loading="eager"
                   className="w-full h-full object-cover object-[center_25%] transition-transform duration-1000 group-hover:scale-105"
