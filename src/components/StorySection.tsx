@@ -72,15 +72,15 @@ export const StorySection: React.FC = () => {
             {/* Left Card: São Paulo Cosmopolita (Retângulo Grande) */}
             <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/35 shadow-2xl relative group hover:border-[#d4a359]/80 transition-all duration-500">
               <div>
-                {/* Retângulo Grande: São Paulo Skyline e Ponte Estaiada */}
-                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#d4a359]/40 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/60">
+                {/* Retângulo Grande Panorâmico: São Paulo Skyline e Ponte Estaiada */}
+                <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#d4a359]/50 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/80">
                   <img
                     src={saoPauloImg}
                     alt="São Paulo - Ponte Estaiada e Skyline Iluminado"
                     loading="eager"
-                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-108"
+                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712] via-transparent to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badges Flutuantes */}
                   <div className="absolute top-3.5 left-3.5 bg-[#07050a]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#d4a359]/40 text-[11px] font-mono text-amber-300 flex items-center gap-1.5 shadow-lg">
@@ -165,15 +165,15 @@ export const StorySection: React.FC = () => {
             {/* Right Card: Bangkok Encantadora (Retângulo Grande) */}
             <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/35 shadow-2xl relative group hover:border-[#d4a359]/80 transition-all duration-500">
               <div>
-                {/* Retângulo Grande: Bangkok Wat Arun ao Crepúsculo */}
-                <div className="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-[#d4a359]/40 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/60">
+                {/* Retângulo Grande Panorâmico: Bangkok Templo Dourado e Rio Chao Phraya */}
+                <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#d4a359]/50 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/80">
                   <img
                     src={bangkokImg}
                     alt="Bangkok - Wat Arun e Rio Chao Phraya Iluminado"
                     loading="eager"
-                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-108"
+                    className="w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0712] via-transparent to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badges Flutuantes */}
                   <div className="absolute top-3.5 left-3.5 bg-[#07050a]/85 backdrop-blur-md px-3 py-1 rounded-full border border-[#d4a359]/40 text-[11px] font-mono text-[#d4a359] flex items-center gap-1.5 shadow-lg">
