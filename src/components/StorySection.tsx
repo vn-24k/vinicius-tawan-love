@@ -95,10 +95,10 @@ export const StorySection: React.FC = () => {
 
                 <div className="text-center sm:text-left">
                   <span className="text-[10px] font-mono tracking-[0.25em] text-[#d4a359] uppercase block mb-1">
-                    BERÇO DE VINICIUS
+                   
                   </span>
                   <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#d4a359] transition-colors">
-                    São Paulo Cosmopolita
+                    São Paulo 
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-300/85 font-sans leading-relaxed">
                     {t.story.p1}
@@ -188,10 +188,10 @@ export const StorySection: React.FC = () => {
 
                 <div className="text-center sm:text-left">
                   <span className="text-[10px] font-mono tracking-[0.25em] text-[#d4a359] uppercase block mb-1">
-                    BERÇO DE TAWAN
+                    
                   </span>
                   <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#d4a359] transition-colors">
-                    Bangkok Encantadora
+                    Bangkok 
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-300/85 font-sans leading-relaxed">
                     {t.story.p2}
