@@ -241,16 +241,23 @@ export const CulinaryShowcase: React.FC = () => {
   });
 
   return (
-    <section id="culinaria" className="relative w-full py-28 px-6 text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
-      {/* Dedicated Section Background: Feiras Tropicais & Mercado Flutuante de Bangkok */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <section id="culinaria" className="relative w-full py-28 px-6 text-[#FAF8F5] overflow-hidden">
+      {/* Floating Golden Subtle Top Accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#d4a359]/35 to-transparent pointer-events-none z-10" />
+
+      {/* Dedicated Section Background with Seamless Vertical Dissolve */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)]">
         <img
           src={bgCulinary}
           alt="Gastronomia Brasileira e Mercado Flutuante da Tailândia"
           className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none" />
       </div>
+
+      {/* Atmospheric Vertical Continuous Mist Overlays */}
+      <div className="absolute top-0 inset-x-0 h-36 bg-gradient-to-b from-[#07050a] via-[#07050a]/60 to-transparent pointer-events-none z-[1]" />
+      <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#07050a] via-[#07050a]/60 to-transparent pointer-events-none z-[1]" />
 
       {/* Background Ambient Mist & Celestial Glow */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-b from-[#d4a359]/15 to-transparent rounded-full blur-[140px] pointer-events-none" />

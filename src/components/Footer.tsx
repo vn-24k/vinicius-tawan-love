@@ -7,16 +7,22 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative w-full text-white border-t border-[#d4a359]/20 pt-20 pb-14 px-6 overflow-hidden">
-      {/* Footer Celestial Background: Skyline de São Paulo & Wat Arun em Bangkok */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <footer className="relative w-full text-white pt-20 pb-14 px-6 overflow-hidden">
+      {/* Floating Golden Subtle Top Accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#d4a359]/35 to-transparent pointer-events-none z-10" />
+
+      {/* Footer Celestial Background with Seamless Vertical Dissolve */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none [mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_22%,black_100%)]">
         <img
           src={bgFooter}
           alt="Skyline da Ponte Estaiada em São Paulo e Wat Arun em Bangkok sob o Céu Estrelado"
           className="w-full h-full object-cover object-[center_60%] filter brightness-[0.92] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent pointer-events-none" />
       </div>
+
+      {/* Atmospheric Vertical Continuous Mist Overlay */}
+      <div className="absolute top-0 inset-x-0 h-36 bg-gradient-to-b from-[#07050a] via-[#07050a]/60 to-transparent pointer-events-none z-[1]" />
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-36 bg-[#d4a359]/10 rounded-full blur-[120px] pointer-events-none z-0" />
 

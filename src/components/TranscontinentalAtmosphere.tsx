@@ -51,6 +51,22 @@ const ATMOSPHERES: AtmosphereOption[] = [
 export const TranscontinentalAtmosphere: React.FC = () => {
   const [mode, setMode] = useState<AtmosphereMode>('fusion');
   const [isSelectorOpen, setIsSelectorOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem('vt_atmosphere_mode') as AtmosphereMode | null;
@@ -65,20 +81,24 @@ export const TranscontinentalAtmosphere: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0a0712]">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#07050a]">
       {/* =========================================================================
           CAMADA 1 (PRINCIPAL): FUSÃO PANORÂMICA TOTALMENTE CONTÍNUA
-          Sem cortes, sem divisão no meio, fusão orgânica de cinema 8K
+          Sem cortes, sem divisão no meio, fusão orgânica com parallax vertical
       ========================================================================== */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
           mode === 'fusion' ? 'opacity-100' : 'opacity-0'
         }`}
+        style={{
+          transform: `translate3d(0, ${-scrollY * 0.04}px, 0)`,
+          transition: 'transform 0.1s ease-out'
+        }}
       >
         <img
           src={seamlessFusionImg}
           alt="Paisagem Panorâmica Transcontinental: Rio de Janeiro e Bangkok Unidos em Luz Dourada"
-          className="w-full h-full object-cover object-[center_35%] filter brightness-[0.97] contrast-[1.1] saturate-[1.28] transform scale-100 lg:scale-105"
+          className="w-full h-[115%] object-cover object-[center_35%] filter brightness-[0.97] contrast-[1.1] saturate-[1.28]"
         />
 
         {/* Suave vinheta cinematográfica de borda, preservando 100% da nitidez central */}

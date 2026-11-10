@@ -16,9 +16,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const { lang, t, toggleLang } = useLanguage();
 
   return (
-    <header className="relative w-full bg-transparent text-[#FAF8F5] overflow-hidden border-b border-[#d4a359]/20">
+    <header className="relative w-full bg-transparent text-[#FAF8F5] overflow-hidden">
       {/* Subtle Atmospheric Top Shimmer */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
+
+      {/* Floating Golden Divider at Header Bottom */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#d4a359]/35 to-transparent pointer-events-none z-20" />
 
       {/* Top Floating Temple Glass Navigation */}
       <nav className="relative z-30 max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-[#d4a359]/20 backdrop-blur-md bg-black/40">
@@ -220,7 +223,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* DUAL CLOCKS & LIVE OPEN-METEO WEATHER SECTION */}
-      <div className="relative z-10 w-full bg-black/45 backdrop-blur-md pt-14 pb-16 px-6 border-t border-[#d4a359]/25">
+      <div className="relative z-10 w-full bg-black/35 backdrop-blur-md pt-14 pb-16 px-6">
+        {/* Soft Golden Subtle Top Axis */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-[#d4a359]/30 to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto" id="clima-fusos">
           {/* Section Indicator */}
           <div className="text-center mb-10">

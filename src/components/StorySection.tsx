@@ -38,16 +38,23 @@ export const StorySection: React.FC = () => {
   };
 
   return (
-    <section id="historia" className="relative w-full py-28 px-6 text-white overflow-hidden border-t border-[#d4a359]/20">
-      {/* Dedicated Section Background: Cristo Redentor & Grande Buda Dourado */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <section id="historia" className="relative w-full py-28 px-6 text-white overflow-hidden">
+      {/* Floating Golden Subtle Top Accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#d4a359]/35 to-transparent pointer-events-none z-10" />
+
+      {/* Dedicated Section Background with Seamless Vertical Dissolve */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none [mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_0%,black_16%,black_84%,transparent_100%)]">
         <img
           src={bgStory}
           alt="Cristo Redentor no Rio de Janeiro e Grande Buda em Bangkok"
           className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35 pointer-events-none" />
       </div>
+
+      {/* Atmospheric Vertical Continuous Mist Overlays */}
+      <div className="absolute top-0 inset-x-0 h-36 bg-gradient-to-b from-[#07050a] via-[#07050a]/60 to-transparent pointer-events-none z-[1]" />
+      <div className="absolute bottom-0 inset-x-0 h-36 bg-gradient-to-t from-[#07050a] via-[#07050a]/60 to-transparent pointer-events-none z-[1]" />
 
       {/* Background radial celestial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#d4a359]/10 via-rose-600/10 to-transparent rounded-full blur-[160px] pointer-events-none z-0" />
