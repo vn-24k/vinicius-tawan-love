@@ -72,7 +72,7 @@ export const VowsAndGuestbook: React.FC = () => {
   };
 
   return (
-    <section id="votos" className="relative w-full py-28 px-6 bg-[#0a0712]/75 backdrop-blur-md text-white border-t border-[#d4a359]/20">
+    <section id="votos" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">

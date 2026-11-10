@@ -6,7 +6,7 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative w-full bg-[#050308]/85 backdrop-blur-md text-white border-t border-[#d4a359]/20 pt-20 pb-14 px-6 overflow-hidden">
+    <footer className="relative w-full bg-black/60 backdrop-blur-md text-white border-t border-[#d4a359]/20 pt-20 pb-14 px-6 overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-36 bg-[#d4a359]/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">

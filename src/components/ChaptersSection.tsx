@@ -39,7 +39,7 @@ export const ChaptersSection: React.FC = () => {
   ];
 
   return (
-    <section id="capitulos" className="relative w-full py-28 px-6 bg-[#0a0712]/75 backdrop-blur-md text-white border-t border-[#d4a359]/20">
+    <section id="capitulos" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-[#d4a359]/20 pb-8">

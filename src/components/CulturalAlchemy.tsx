@@ -70,7 +70,7 @@ export const CulturalAlchemy: React.FC = () => {
   ];
 
   return (
-    <section id="alquimia" className="relative w-full py-28 px-6 bg-[#07050a]/75 backdrop-blur-md text-white border-t border-[#d4a359]/20">
+    <section id="alquimia" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-white border-t border-[#d4a359]/20">
       <div className="max-w-7xl mx-auto">
         {/* Section Badge */}
         <div className="flex items-center space-x-3 mb-6">

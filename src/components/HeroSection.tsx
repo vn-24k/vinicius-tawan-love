@@ -16,14 +16,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const { lang, t, toggleLang } = useLanguage();
 
   return (
-    <header className="relative w-full bg-gradient-to-b from-[#090710]/75 via-[#0e0918]/50 to-[#07050b]/80 backdrop-blur-[2px] text-[#FAF8F5] overflow-hidden border-b border-[#d4a359]/20">
-      {/* Background Sacred Geometry & Atmospheric Mist */}
-      <div className="absolute inset-0 bg-[radial-gradient(#d4a35912_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-gradient-to-b from-rose-500/10 via-[#d4a359]/15 to-transparent rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-gradient-to-br from-[#d4a359]/20 via-rose-600/10 to-transparent rounded-full blur-[140px] pointer-events-none" />
+    <header className="relative w-full bg-transparent text-[#FAF8F5] overflow-hidden border-b border-[#d4a359]/20">
+      {/* Subtle Atmospheric Top Shimmer */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 pointer-events-none" />
 
       {/* Top Floating Temple Glass Navigation */}
-      <nav className="relative z-30 max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-[#d4a359]/20 backdrop-blur-md bg-[#090710]/75">
+      <nav className="relative z-30 max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-[#d4a359]/20 backdrop-blur-md bg-black/40">
         {/* Monogram Crest */}
         <div className="flex items-center space-x-3.5">
           <div className="w-11 h-11 rotate-45 border border-[#d4a359] bg-[#140e24] text-[#e5b869] flex items-center justify-center shadow-lg transition-transform hover:rotate-90 duration-700">
@@ -119,8 +117,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Hero Grid: Sacred Typography Left & Grand Portrait Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
-          {/* Left Column (7 cols): Classical Imperial Typography */}
-          <div className="lg:col-span-7">
+          {/* Left Column (7 cols): Classical Imperial Typography with Glassmorphic Card */}
+          <div className="lg:col-span-7 bg-black/45 backdrop-blur-md p-6 sm:p-9 rounded-3xl border border-[#d4a359]/35 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
             <h1 className="font-cinzel text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white uppercase leading-[1.08]">
               {t.hero.titleLine1} <br />
               <span className="font-serif italic font-normal text-3xl sm:text-5xl lg:text-6xl text-[#d4a359] lowercase tracking-normal">
@@ -222,7 +220,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* DUAL CLOCKS & LIVE OPEN-METEO WEATHER SECTION */}
-      <div className="relative z-10 w-full bg-gradient-to-b from-[#0e0a19] via-[#090710] to-[#07050a] pt-14 pb-16 px-6 border-t border-[#d4a359]/20">
+      <div className="relative z-10 w-full bg-black/45 backdrop-blur-md pt-14 pb-16 px-6 border-t border-[#d4a359]/25">
         <div className="max-w-7xl mx-auto" id="clima-fusos">
           {/* Section Indicator */}
           <div className="text-center mb-10">

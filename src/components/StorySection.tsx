@@ -37,7 +37,7 @@ export const StorySection: React.FC = () => {
   };
 
   return (
-    <section id="historia" className="relative w-full py-28 px-6 bg-[#07050a]/70 backdrop-blur-md text-white overflow-hidden border-t border-[#d4a359]/20">
+    <section id="historia" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-white overflow-hidden border-t border-[#d4a359]/20">
       {/* Background radial celestial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#d4a359]/10 via-rose-600/10 to-transparent rounded-full blur-[160px] pointer-events-none" />
 

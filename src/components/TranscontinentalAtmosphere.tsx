@@ -66,45 +66,43 @@ export const TranscontinentalAtmosphere: React.FC = () => {
   };
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0a0712]">
       {/* =========================================================================
-          CAMADA 1: FUSÃO DOURADA (RIO DE JANEIRO ⇄ BANGKOK WAT ARUN)
+          CAMADA 1: FUSÃO DOURADA VÍVIDA (RIO DE JANEIRO ⇄ BANGKOK WAT ARUN)
+          Cores quentes, vivas, nítidas em 8K sem bloqueio escuro
       ========================================================================== */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
           mode === 'fusion' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        {/* Lado Esquerdo: Rio de Janeiro / Pão de Açúcar no Entardecer */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[62%] overflow-hidden">
+        {/* Lado Esquerdo: Rio de Janeiro / Pão de Açúcar ao Entardecer */}
+        <div className="absolute inset-y-0 left-0 w-[55%] lg:w-[58%] overflow-hidden">
           <img
             src={rioImg}
             alt="Rio de Janeiro e Pão de Açúcar ao Entardecer"
-            className="w-full h-full object-cover object-center transform scale-105 animate-[pulse_24s_ease-in-out_infinite]"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-100 lg:scale-105"
           />
-          {/* Blend Gradient para a direita */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-[#07050a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07050a] via-transparent to-black/60" />
+          <div className="absolute inset-y-0 right-0 w-24 lg:w-48 bg-gradient-to-r from-transparent to-[#0a0712]/80" />
         </div>
 
-        {/* Lado Direito: Bangkok Wat Arun ao Pôr do Sol Dourado */}
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] overflow-hidden">
+        {/* Lado Direito: Bangkok Wat Arun ao Pôr do Sol */}
+        <div className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%] overflow-hidden">
           <img
             src={watArunImg}
             alt="Wat Arun e o Rio Chao Phraya em Bangkok"
-            className="w-full h-full object-cover object-center transform scale-105 animate-[pulse_28s_ease-in-out_infinite]"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-100 lg:scale-105"
           />
-          {/* Blend Gradient para a esquerda */}
-          <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-transparent to-[#07050a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07050a] via-transparent to-black/60" />
+          <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-l from-transparent to-[#0a0712]/80" />
         </div>
 
-        {/* Luz Áurea Central Unificadora */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,163,89,0.18)_0%,transparent_70%)] pointer-events-none" />
+        {/* Leve vinheta cinematográfica de borda (preservando o centro 100% vivo) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(229,184,105,0.12)_0%,transparent_65%)] pointer-events-none" />
       </div>
 
       {/* =========================================================================
-          CAMADA 2: FESTIVAL DAS LANTERNAS YI PENG & CÉU NOTURNO
+          CAMADA 2: FESTIVAL DAS LANTERNAS YI PENG (CÉU VIVO COM MILHARES DE LUZES)
       ========================================================================== */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -114,9 +112,9 @@ export const TranscontinentalAtmosphere: React.FC = () => {
         <img
           src={lanternsImg}
           alt="Festival das Lanternas Yi Peng na Tailândia"
-          className="w-full h-full object-cover object-center transform scale-105 animate-[pulse_30s_ease-in-out_infinite]"
+          className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[1.15] saturate-[1.35] transform scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#07050a]/40 to-[#07050a]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(229,184,105,0.25)_0%,transparent_60%)]" />
       </div>
 
@@ -128,25 +126,23 @@ export const TranscontinentalAtmosphere: React.FC = () => {
           mode === 'sanctuary' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[55%] overflow-hidden">
+        <div className="absolute inset-y-0 left-0 w-[55%] lg:w-[58%] overflow-hidden">
           <img
             src={amazoniaImg}
             alt="Floresta Amazônica Tropical"
-            className="w-full h-full object-cover object-center transform scale-105 animate-[pulse_26s_ease-in-out_infinite]"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-[#07050a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07050a] via-transparent to-black/60" />
+          <div className="absolute inset-y-0 right-0 w-24 lg:w-48 bg-gradient-to-r from-transparent to-[#0a0712]/80" />
         </div>
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[55%] overflow-hidden">
+        <div className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%] overflow-hidden">
           <img
             src={buddhaImg}
             alt="Grande Buda Dourado e Templos Sagrados da Tailândia"
-            className="w-full h-full object-cover object-center transform scale-105 animate-[pulse_28s_ease-in-out_infinite]"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/50 via-transparent to-[#07050a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07050a] via-transparent to-black/60" />
+          <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-l from-transparent to-[#0a0712]/80" />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(74,222,128,0.12)_0%,transparent_65%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
       </div>
 
       {/* =========================================================================
@@ -157,25 +153,23 @@ export const TranscontinentalAtmosphere: React.FC = () => {
           mode === 'metropolis' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[55%] overflow-hidden">
+        <div className="absolute inset-y-0 left-0 w-[55%] lg:w-[58%] overflow-hidden">
           <img
             src={saoPauloImg}
             alt="São Paulo Skyline Noturno"
-            className="w-full h-full object-cover object-center transform scale-105"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.15] saturate-[1.3] transform scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-[#07050a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07050a] via-transparent to-black/70" />
+          <div className="absolute inset-y-0 right-0 w-24 lg:w-48 bg-gradient-to-r from-transparent to-[#0a0712]/80" />
         </div>
-        <div className="absolute inset-y-0 right-0 w-full lg:w-[55%] overflow-hidden">
+        <div className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%] overflow-hidden">
           <img
             src={bangkokImg}
             alt="Bangkok Metrópole Iluminada"
-            className="w-full h-full object-cover object-center transform scale-105"
+            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.15] saturate-[1.3] transform scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/60 via-transparent to-[#07050a]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#07050a] via-transparent to-black/70" />
+          <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-l from-transparent to-[#0a0712]/80" />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,163,89,0.15)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55 pointer-events-none" />
       </div>
 
       {/* =========================================================================
@@ -197,13 +191,13 @@ export const TranscontinentalAtmosphere: React.FC = () => {
       ========================================================================== */}
       <aside aria-label="Controle de Cenário Atmosférico" className="fixed bottom-6 left-6 z-50 pointer-events-auto flex flex-col items-start gap-2">
         {isSelectorOpen && (
-          <div className="p-3 rounded-2xl bg-[#090710]/95 backdrop-blur-xl border border-[#d4a359]/30 shadow-[0_20px_50px_rgba(0,0,0,0.8)] flex flex-col gap-1.5 w-72 animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <div className="p-3 rounded-2xl bg-black/95 backdrop-blur-2xl border border-[#d4a359]/40 shadow-[0_20px_50px_rgba(0,0,0,0.9)] flex flex-col gap-1.5 w-72 animate-in fade-in slide-in-from-bottom-2 duration-300">
             <div className="px-2 py-1 flex items-center justify-between border-b border-[#d4a359]/20 pb-2">
               <span className="text-[11px] font-mono tracking-widest text-[#d4a359] uppercase font-bold flex items-center gap-1.5">
                 <Compass className="w-3.5 h-3.5 text-[#d4a359]" />
                 Atmosferas 8K
               </span>
-              <span className="text-[10px] font-mono text-stone-400">BR ⇄ TH</span>
+              <span className="text-[10px] font-mono text-stone-300">BR ⇄ TH</span>
             </div>
             {ATMOSPHERES.map((atm) => {
               const Icon = atm.icon;
@@ -212,10 +206,10 @@ export const TranscontinentalAtmosphere: React.FC = () => {
                 <button
                   key={atm.id}
                   onClick={() => handleSelectMode(atm.id)}
-                  className={`w-full px-3 py-2 rounded-xl text-left transition-all flex items-start gap-2.5 ${
+                  className={`w-full px-3 py-2.5 rounded-xl text-left transition-all flex items-start gap-2.5 ${
                     isSelected
-                      ? 'bg-[#d4a359]/20 border border-[#d4a359] text-white shadow-sm'
-                      : 'hover:bg-white/5 text-stone-300 border border-transparent'
+                      ? 'bg-[#d4a359]/30 border border-[#d4a359] text-white shadow-md'
+                      : 'hover:bg-white/10 text-stone-200 border border-transparent'
                   }`}
                 >
                   <Icon className={`w-4 h-4 mt-0.5 shrink-0 ${isSelected ? 'text-[#d4a359]' : 'text-stone-400'}`} />
@@ -233,11 +227,11 @@ export const TranscontinentalAtmosphere: React.FC = () => {
         <button
           onClick={() => setIsSelectorOpen(!isSelectorOpen)}
           title="Alternar atmosfera e cenário cinematográfico de fundo"
-          className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-[#090710]/85 hover:bg-[#140e24] backdrop-blur-md border border-[#d4a359]/40 hover:border-[#d4a359] text-stone-200 text-xs font-mono shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition-all duration-300 group"
+          className="flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-black/85 hover:bg-black/95 backdrop-blur-xl border border-[#d4a359]/50 hover:border-[#d4a359] text-white text-xs font-mono shadow-[0_10px_30px_rgba(0,0,0,0.8)] transition-all duration-300 group hover:scale-105"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#d4a359] animate-spin group-hover:rotate-180 transition-transform duration-700" />
-          <span className="hidden sm:inline">Cenário:</span>
-          <span className="text-[#e5b869] font-semibold">
+          <Sparkles className="w-4 h-4 text-[#d4a359] animate-spin group-hover:rotate-180 transition-transform duration-700" />
+          <span className="hidden sm:inline font-medium">Cenário:</span>
+          <span className="text-[#e5b869] font-bold">
             {ATMOSPHERES.find((a) => a.id === mode)?.namePt.split('(')[0].trim()}
           </span>
         </button>

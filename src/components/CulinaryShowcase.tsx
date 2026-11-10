@@ -240,7 +240,7 @@ export const CulinaryShowcase: React.FC = () => {
   });
 
   return (
-    <section id="culinaria" className="relative w-full py-28 px-6 bg-[#0a0712]/75 backdrop-blur-md text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
+    <section id="culinaria" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
       {/* Background Ambient Mist & Celestial Glow */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-b from-[#d4a359]/15 to-transparent rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-gradient-to-t from-rose-500/10 to-transparent rounded-full blur-[130px] pointer-events-none" />
