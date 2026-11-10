@@ -16,7 +16,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const { lang, t, toggleLang } = useLanguage();
 
   return (
-    <header className="relative w-full bg-gradient-to-b from-[#090710] via-[#0e0918] to-[#07050b] text-[#FAF8F5] overflow-hidden border-b border-[#d4a359]/20">
+    <header className="relative w-full bg-gradient-to-b from-[#090710]/75 via-[#0e0918]/50 to-[#07050b]/80 backdrop-blur-[2px] text-[#FAF8F5] overflow-hidden border-b border-[#d4a359]/20">
       {/* Background Sacred Geometry & Atmospheric Mist */}
       <div className="absolute inset-0 bg-[radial-gradient(#d4a35912_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-gradient-to-b from-rose-500/10 via-[#d4a359]/15 to-transparent rounded-full blur-[160px] pointer-events-none" />

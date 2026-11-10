@@ -8,6 +8,7 @@ import { VowsAndGuestbook } from './components/VowsAndGuestbook';
 import { Footer } from './components/Footer';
 import { StarfieldCanvas } from './components/StarfieldCanvas';
 import { FloatingHeartsCanvas } from './components/FloatingHeartsCanvas';
+import { TranscontinentalAtmosphere } from './components/TranscontinentalAtmosphere';
 import { MagneticMarquee } from './components/MagneticMarquee';
 import { LanguageProvider } from './context/LanguageContext';
 import { soundEngine } from './audio/CinematicAudio';
@@ -22,8 +23,11 @@ function MainApp() {
 
   return (
     <div className="relative min-h-screen bg-[#07050a] text-[#FAF8F5] selection:bg-[#d4a359] selection:text-black">
+      {/* 8K Living Transcontinental Atmosphere (Rio de Janeiro, Bangkok Wat Arun, Yi Peng Lanterns, Amazonia) */}
+      <TranscontinentalAtmosphere />
+
       {/* Dynamic Starfield Canvas Background from Arsenal */}
-      <StarfieldCanvas intensity={1.2} />
+      <StarfieldCanvas intensity={0.7} />
 
       {/* Romantic Ambient Floating Hearts & Mouse Trail Canvas */}
       <FloatingHeartsCanvas />

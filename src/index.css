@@ -76,3 +76,40 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Yi Peng floating lantern particles */
+.lantern-particle {
+  position: absolute;
+  border-radius: 50% 50% 40% 40%;
+  background: radial-gradient(circle, #fff3d0 25%, #e5b869 65%, rgba(212, 163, 89, 0) 100%);
+  box-shadow: 0 0 14px 4px rgba(229, 184, 105, 0.75);
+  animation: floatUp 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(105vh) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(35px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.lp-1 { left: 14%; animation-duration: 22s; animation-delay: 0s; width: 6px; height: 8px; }
+.lp-2 { left: 26%; animation-duration: 26s; animation-delay: 4s; width: 4px; height: 6px; }
+.lp-3 { left: 42%; animation-duration: 20s; animation-delay: 8s; width: 7px; height: 9px; }
+.lp-4 { left: 58%; animation-duration: 25s; animation-delay: 2s; width: 5px; height: 7px; }
+.lp-5 { left: 72%; animation-duration: 23s; animation-delay: 6s; width: 6px; height: 8px; }
+.lp-6 { left: 86%; animation-duration: 28s; animation-delay: 11s; width: 4px; height: 6px; }
+.lp-7 { left: 34%; animation-duration: 24s; animation-delay: 14s; width: 5px; height: 7px; }
+.lp-8 { left: 68%; animation-duration: 21s; animation-delay: 16s; width: 7px; height: 9px; }
+
