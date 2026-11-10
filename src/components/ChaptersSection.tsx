@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import bgChapters from '../assets/atmosphere/bg-section-chapters.jpg';
 
 export const ChaptersSection: React.FC = () => {
   const { t } = useLanguage();
@@ -39,8 +40,18 @@ export const ChaptersSection: React.FC = () => {
   ];
 
   return (
-    <section id="capitulos" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-white border-t border-[#d4a359]/20">
-      <div className="max-w-7xl mx-auto">
+    <section id="capitulos" className="relative w-full py-28 px-6 text-white border-t border-[#d4a359]/20 overflow-hidden">
+      {/* Dedicated Section Background: Cataratas do Iguaçu & Santuário de Elefantes */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src={bgChapters}
+          alt="Cataratas do Iguaçu e Santuário de Elefantes de Chiang Mai"
+          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60 pointer-events-none" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-[#d4a359]/20 pb-8">
           <div>

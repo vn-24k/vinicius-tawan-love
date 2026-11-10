@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Utensils, Heart, ChevronLeft, ChevronRight, Sparkles, Flame, Star } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import bgCulinary from '../assets/atmosphere/bg-section-culinary.jpg';
 
 interface Dish {
   id: number;
@@ -240,7 +241,17 @@ export const CulinaryShowcase: React.FC = () => {
   });
 
   return (
-    <section id="culinaria" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
+    <section id="culinaria" className="relative w-full py-28 px-6 text-[#FAF8F5] border-t border-[#d4a359]/20 overflow-hidden">
+      {/* Dedicated Section Background: Feiras Tropicais & Mercado Flutuante de Bangkok */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src={bgCulinary}
+          alt="Gastronomia Brasileira e Mercado Flutuante da Tailândia"
+          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60 pointer-events-none" />
+      </div>
+
       {/* Background Ambient Mist & Celestial Glow */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-b from-[#d4a359]/15 to-transparent rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-gradient-to-t from-rose-500/10 to-transparent rounded-full blur-[130px] pointer-events-none" />

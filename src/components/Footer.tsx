@@ -1,15 +1,26 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import bgLanterns from '../assets/atmosphere/yi-peng-lanterns.jpg';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative w-full bg-black/60 backdrop-blur-md text-white border-t border-[#d4a359]/20 pt-20 pb-14 px-6 overflow-hidden">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-36 bg-[#d4a359]/10 rounded-full blur-[120px] pointer-events-none" />
+    <footer className="relative w-full text-white border-t border-[#d4a359]/20 pt-20 pb-14 px-6 overflow-hidden">
+      {/* Footer Celestial Background: Lanternas Sagradas no Céu Cósmico */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src={bgLanterns}
+          alt="Lanternas Flutuando nas Estrelas"
+          className="w-full h-full object-cover object-[center_70%] filter brightness-[0.75] contrast-[1.1] saturate-[1.2]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 pointer-events-none" />
+      </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-36 bg-[#d4a359]/10 rounded-full blur-[120px] pointer-events-none z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-[#d4a359]/20">
           {/* Col 1: Brand / Monogram */}
           <div className="md:col-span-5 space-y-4">

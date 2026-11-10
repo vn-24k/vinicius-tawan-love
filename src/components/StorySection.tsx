@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { soundEngine } from '../audio/CinematicAudio';
 import saoPauloImg from '../assets/cities/sao-paulo.jpg';
 import bangkokImg from '../assets/cities/bangkok.jpg';
+import bgStory from '../assets/atmosphere/bg-section-story.jpg';
 
 export const StorySection: React.FC = () => {
   const { lang, t } = useLanguage();
@@ -37,9 +38,19 @@ export const StorySection: React.FC = () => {
   };
 
   return (
-    <section id="historia" className="relative w-full py-28 px-6 bg-black/40 backdrop-blur-md text-white overflow-hidden border-t border-[#d4a359]/20">
+    <section id="historia" className="relative w-full py-28 px-6 text-white overflow-hidden border-t border-[#d4a359]/20">
+      {/* Dedicated Section Background: Cristo Redentor & Grande Buda Dourado */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <img
+          src={bgStory}
+          alt="Cristo Redentor no Rio de Janeiro e Grande Buda em Bangkok"
+          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60 pointer-events-none" />
+      </div>
+
       {/* Background radial celestial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#d4a359]/10 via-rose-600/10 to-transparent rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#d4a359]/10 via-rose-600/10 to-transparent rounded-full blur-[160px] pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Section Top Header */}
