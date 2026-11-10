@@ -44,9 +44,9 @@ export const StorySection: React.FC = () => {
         <img
           src={bgStory}
           alt="Cristo Redentor no Rio de Janeiro e Grande Buda em Bangkok"
-          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
       </div>
 
       {/* Background radial celestial glow */}
@@ -81,7 +81,7 @@ export const StorySection: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10 items-stretch">
             {/* Left Card: São Paulo Cosmopolita (Retângulo Grande) */}
-            <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/35 shadow-2xl relative group hover:border-[#d4a359]/80 transition-all duration-500">
+            <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-black/55 backdrop-blur-md border border-[#d4a359]/35 shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative group hover:border-[#d4a359]/80 transition-all duration-500">
               <div>
                 {/* Retângulo Grande Panorâmico: São Paulo Skyline e Ponte Estaiada */}
                 <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#d4a359]/50 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/80">
@@ -124,7 +124,7 @@ export const StorySection: React.FC = () => {
             </div>
 
             {/* Center Master Card: The Sacred Union & Heartbeat Sync */}
-            <div className="flex flex-col justify-between text-center p-8 rounded-3xl bg-gradient-to-b from-[#22153a] via-[#140c24] to-[#07050a] border-2 border-[#d4a359] shadow-[0_25px_70px_rgba(212,163,89,0.3)] relative z-20">
+            <div className="flex flex-col justify-between text-center p-8 rounded-3xl bg-black/60 backdrop-blur-md border-2 border-[#d4a359] shadow-[0_25px_70px_rgba(212,163,89,0.3)] relative z-20">
               <div className="flex flex-col items-center">
                 {/* Sacred Monogram Crest */}
                 <div className="relative my-4">
@@ -174,7 +174,7 @@ export const StorySection: React.FC = () => {
             </div>
 
             {/* Right Card: Bangkok Encantadora (Retângulo Grande) */}
-            <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/35 shadow-2xl relative group hover:border-[#d4a359]/80 transition-all duration-500">
+            <div className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-black/55 backdrop-blur-md border border-[#d4a359]/35 shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative group hover:border-[#d4a359]/80 transition-all duration-500">
               <div>
                 {/* Retângulo Grande Panorâmico: Bangkok Templo Dourado e Rio Chao Phraya */}
                 <div className="relative w-full h-64 sm:h-72 lg:h-80 rounded-2xl overflow-hidden border-2 border-[#d4a359]/50 shadow-2xl mb-6 group-hover:border-[#d4a359] transition-all duration-700 bg-black/80">
@@ -219,7 +219,7 @@ export const StorySection: React.FC = () => {
         </div>
 
         {/* Bilingual Love Dictionary */}
-        <div className="p-8 rounded-3xl bg-[#120d20] border border-[#d4a359]/30 shadow-2xl">
+        <div className="p-8 rounded-3xl bg-black/60 backdrop-blur-md border border-[#d4a359]/35 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
           <div className="flex items-center justify-between mb-6 border-b border-[#d4a359]/20 pb-4">
             <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#d4a359] flex items-center gap-2 font-bold">
               <Sparkles className="w-4 h-4 text-[#d4a359]" />
@@ -236,7 +236,7 @@ export const StorySection: React.FC = () => {
                 className={`p-3.5 rounded-xl border text-left transition-all duration-300 ${
                   selectedWord === idx
                     ? 'bg-[#d4a359] border-[#d4a359] text-[#090710] shadow-lg font-bold'
-                    : 'bg-[#07050a] border-[#d4a359]/20 text-stone-300 hover:border-[#d4a359]/60 hover:text-white'
+                    : 'bg-black/40 backdrop-blur-sm border-[#d4a359]/25 text-stone-300 hover:border-[#d4a359]/60 hover:text-white'
                 }`}
               >
                 <span className="block text-xs uppercase tracking-wider truncate">{item.pt}</span>
@@ -248,7 +248,7 @@ export const StorySection: React.FC = () => {
           </div>
 
           {/* Word Details Box */}
-          <div className="p-5 rounded-2xl bg-[#07050a] border border-[#d4a359]/20 flex items-start justify-between gap-4">
+          <div className="p-5 rounded-2xl bg-black/50 backdrop-blur-sm border border-[#d4a359]/25 flex items-start justify-between gap-4">
             <div>
               <div className="flex items-center gap-3">
                 <span className="text-2xl font-bold text-[#d4a359]">{bilingualWords[selectedWord].th}</span>

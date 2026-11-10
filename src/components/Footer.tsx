@@ -1,26 +1,26 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import bgLanterns from '../assets/atmosphere/yi-peng-lanterns.jpg';
+import bgFooter from '../assets/atmosphere/bg-section-footer.jpg';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
     <footer className="relative w-full text-white border-t border-[#d4a359]/20 pt-20 pb-14 px-6 overflow-hidden">
-      {/* Footer Celestial Background: Lanternas Sagradas no Céu Cósmico */}
+      {/* Footer Celestial Background: Skyline de São Paulo & Wat Arun em Bangkok */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
-          src={bgLanterns}
-          alt="Lanternas Flutuando nas Estrelas"
-          className="w-full h-full object-cover object-[center_70%] filter brightness-[0.75] contrast-[1.1] saturate-[1.2]"
+          src={bgFooter}
+          alt="Skyline da Ponte Estaiada em São Paulo e Wat Arun em Bangkok sob o Céu Estrelado"
+          className="w-full h-full object-cover object-[center_60%] filter brightness-[0.92] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/30 pointer-events-none" />
       </div>
 
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-36 bg-[#d4a359]/10 rounded-full blur-[120px] pointer-events-none z-0" />
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto bg-black/55 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-[#d4a359]/30 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-[#d4a359]/20">
           {/* Col 1: Brand / Monogram */}
           <div className="md:col-span-5 space-y-4">

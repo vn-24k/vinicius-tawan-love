@@ -247,9 +247,9 @@ export const CulinaryShowcase: React.FC = () => {
         <img
           src={bgCulinary}
           alt="Gastronomia Brasileira e Mercado Flutuante da Tailândia"
-          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
       </div>
 
       {/* Background Ambient Mist & Celestial Glow */}
@@ -358,7 +358,7 @@ export const CulinaryShowcase: React.FC = () => {
             return (
               <div
                 key={dish.id}
-                className="group relative flex-shrink-0 w-[320px] sm:w-[360px] rounded-2xl bg-gradient-to-b from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/30 hover:border-[#d4a359]/80 overflow-hidden flex flex-col justify-between transition-all duration-500 snap-start shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:-translate-y-2"
+                className="group relative flex-shrink-0 w-[320px] sm:w-[360px] rounded-2xl bg-black/60 backdrop-blur-md border border-[#d4a359]/35 hover:border-[#d4a359]/80 overflow-hidden flex flex-col justify-between transition-all duration-500 snap-start shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:-translate-y-2"
               >
                 {/* Real Food Photography Banner with Exact Food Depiction */}
                 <div className="relative w-full h-48 overflow-hidden bg-black/60 border-b border-[#d4a359]/20">

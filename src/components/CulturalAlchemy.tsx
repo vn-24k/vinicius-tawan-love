@@ -77,9 +77,9 @@ export const CulturalAlchemy: React.FC = () => {
         <img
           src={bgAlchemy}
           alt="Carnaval Brasileiro e Festivais Iluminados de Bangkok"
-          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -119,10 +119,10 @@ export const CulturalAlchemy: React.FC = () => {
                   onClick={() => {
                     setActiveTab(tab.id);
                   }}
-                  className={`w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all duration-300 ${
+                  className={`w-full p-4 rounded-xl border text-left flex items-center justify-between transition-all duration-300 backdrop-blur-md ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#221535] to-[#120b1f] border-[#d4a359] text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
-                      : 'bg-[#120c20] border-[#d4a359]/20 text-stone-400 hover:border-[#d4a359]/50 hover:text-white'
+                      ? 'bg-[#d4a359]/20 border-[#d4a359] text-white shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+                      : 'bg-black/55 border-[#d4a359]/25 text-stone-300 hover:border-[#d4a359]/60 hover:text-white'
                   }`}
                 >
                   <div className="flex items-center space-x-3">
@@ -142,7 +142,7 @@ export const CulturalAlchemy: React.FC = () => {
 
           {/* Right Column: Tab Display Card with Real Photography */}
           <div className="lg:col-span-8">
-            <div className="rounded-3xl bg-gradient-to-br from-[#18112a] via-[#100a1c] to-[#07050a] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div className="rounded-3xl bg-black/60 backdrop-blur-md border border-[#d4a359]/35 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.6)] relative overflow-hidden">
               <div className="flex items-center justify-between pb-6 border-b border-[#d4a359]/20 mb-6">
                 <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#d4a359] font-bold">
                   {tabs[activeTab].title}
@@ -155,7 +155,7 @@ export const CulturalAlchemy: React.FC = () => {
               {/* Dual cultural photographic cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 {/* Brazil Side Card */}
-                <div className="rounded-2xl bg-[#1c1228] border border-amber-500/25 overflow-hidden group">
+                <div className="rounded-2xl bg-black/50 backdrop-blur-sm border border-amber-500/30 overflow-hidden group">
                   <div className="relative w-full h-52 overflow-hidden bg-black/40">
                     <img
                       src={tabs[activeTab].brazilImg}
@@ -163,7 +163,7 @@ export const CulturalAlchemy: React.FC = () => {
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1c1228] via-transparent to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
                     <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-xs flex items-center gap-1.5">
                       <span className="text-base">🇧🇷</span>
                       <span className="font-mono text-[10px] text-amber-400 font-semibold">BRASIL</span>
@@ -181,7 +181,7 @@ export const CulturalAlchemy: React.FC = () => {
                 </div>
 
                 {/* Thailand Side Card */}
-                <div className="rounded-2xl bg-[#E5B869]/10 border border-[#E5B869]/25 overflow-hidden group">
+                <div className="rounded-2xl bg-black/50 backdrop-blur-sm border border-[#d4a359]/30 overflow-hidden group">
                   <div className="relative w-full h-52 overflow-hidden bg-black/40">
                     <img
                       src={tabs[activeTab].thaiImg}

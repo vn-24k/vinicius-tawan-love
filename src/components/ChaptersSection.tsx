@@ -13,9 +13,9 @@ export const ChaptersSection: React.FC = () => {
       subtitle: t.chapters.ch1.subtitle,
       desc: t.chapters.ch1.desc,
       badge: t.chapters.ch1.badge,
-      gradient: 'from-[#191129] via-[#0f0a1c] to-[#07050b]',
-      borderColor: 'border-[#d4a359]/30 group-hover:border-[#d4a359]',
-      tagColor: 'text-amber-300 bg-amber-950/50 border border-amber-500/30'
+      gradient: 'from-black/60 via-black/45 to-black/60 backdrop-blur-md',
+      borderColor: 'border-[#d4a359]/35 group-hover:border-[#d4a359]',
+      tagColor: 'text-amber-300 bg-amber-950/60 border border-amber-500/40'
     },
     {
       step: '02',
@@ -23,9 +23,9 @@ export const ChaptersSection: React.FC = () => {
       subtitle: t.chapters.ch2.subtitle,
       desc: t.chapters.ch2.desc,
       badge: t.chapters.ch2.badge,
-      gradient: 'from-[#231536] via-[#140b22] to-[#07050b]',
+      gradient: 'from-black/65 via-black/50 to-black/65 backdrop-blur-md',
       borderColor: 'border-[#d4a359]/50 group-hover:border-[#d4a359]',
-      tagColor: 'text-[#d4a359] bg-[#140e24] border border-[#d4a359]/40'
+      tagColor: 'text-[#d4a359] bg-[#140e24]/80 border border-[#d4a359]/50'
     },
     {
       step: '03',
@@ -33,9 +33,9 @@ export const ChaptersSection: React.FC = () => {
       subtitle: t.chapters.ch3.subtitle,
       desc: t.chapters.ch3.desc,
       badge: t.chapters.ch3.badge,
-      gradient: 'from-[#191129] via-[#0f0a1c] to-[#07050b]',
-      borderColor: 'border-[#d4a359]/30 group-hover:border-[#d4a359]',
-      tagColor: 'text-rose-300 bg-rose-950/50 border border-rose-500/30'
+      gradient: 'from-black/60 via-black/45 to-black/60 backdrop-blur-md',
+      borderColor: 'border-[#d4a359]/35 group-hover:border-[#d4a359]',
+      tagColor: 'text-rose-300 bg-rose-950/60 border border-rose-500/40'
     }
   ];
 
@@ -46,9 +46,9 @@ export const ChaptersSection: React.FC = () => {
         <img
           src={bgChapters}
           alt="Cataratas do Iguaçu e Santuário de Elefantes de Chiang Mai"
-          className="w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.1] saturate-[1.25]"
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">

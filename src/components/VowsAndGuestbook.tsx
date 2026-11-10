@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Send, Sparkles, MessageSquareQuote } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { useLanguage } from '../context/LanguageContext';
-import bgLanterns from '../assets/atmosphere/yi-peng-lanterns.jpg';
+import bgVows from '../assets/atmosphere/bg-section-vows.jpg';
 
 interface Note {
   id: number;
@@ -74,14 +74,14 @@ export const VowsAndGuestbook: React.FC = () => {
 
   return (
     <section id="votos" className="relative w-full py-28 px-6 text-white border-t border-[#d4a359]/20 overflow-hidden">
-      {/* Dedicated Section Background: Noite Sagrada das Lanternas Yi Peng */}
+      {/* Dedicated Section Background: Costa Brasileira ao Luar & Festival Yi Peng na Tailândia */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
-          src={bgLanterns}
-          alt="Milhares de Lanternas Sagradas Flutuando no Céu da Tailândia"
-          className="w-full h-full object-cover object-center filter brightness-[0.85] contrast-[1.12] saturate-[1.3]"
+          src={bgVows}
+          alt="Costa Brasileira ao Luar e Festival Sagrado Yi Peng com Milhares de Lanternas"
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.12] saturate-[1.28]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/25 to-black/65 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/45 pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -108,7 +108,7 @@ export const VowsAndGuestbook: React.FC = () => {
         {/* Vows Side-by-Side (Vinicius & Tawan) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Vow Vinicius */}
-          <div className="relative rounded-2xl bg-gradient-to-b from-[#181129] to-[#0c0817] border border-amber-500/40 p-8 shadow-2xl group hover:border-amber-400 transition-all duration-500">
+          <div className="relative rounded-2xl bg-black/60 backdrop-blur-md border border-amber-500/40 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] group hover:border-amber-400 transition-all duration-500">
             <div className="flex items-center justify-between pb-4 border-b border-[#d4a359]/20 mb-6">
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🇧🇷</span>
@@ -130,7 +130,7 @@ export const VowsAndGuestbook: React.FC = () => {
           </div>
 
           {/* Vow Tawan */}
-          <div className="relative rounded-2xl bg-gradient-to-b from-[#221535] to-[#0c0817] border border-[#d4a359]/40 p-8 shadow-2xl group hover:border-[#d4a359] transition-all duration-500">
+          <div className="relative rounded-2xl bg-black/60 backdrop-blur-md border border-[#d4a359]/40 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.6)] group hover:border-[#d4a359] transition-all duration-500">
             <div className="flex items-center justify-between pb-4 border-b border-[#d4a359]/20 mb-6">
               <div className="flex items-center space-x-2">
                 <span className="text-xl">🇹🇭</span>
@@ -153,7 +153,7 @@ export const VowsAndGuestbook: React.FC = () => {
         </div>
 
         {/* Interactive Guestbook / Mural */}
-        <div className="rounded-2xl bg-[#120c22] border border-[#d4a359]/30 p-6 sm:p-8 shadow-2xl">
+        <div className="rounded-2xl bg-black/60 backdrop-blur-md border border-[#d4a359]/35 p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#d4a359]/20 mb-8">
             <div>
               <h3 className="text-lg font-cinzel font-bold text-white flex items-center gap-2">
@@ -229,7 +229,7 @@ export const VowsAndGuestbook: React.FC = () => {
             {notes.map((note) => (
               <div
                 key={note.id}
-                className="p-5 rounded-xl bg-[#07050a] border border-[#d4a359]/20 flex flex-col justify-between hover:border-[#d4a359]/50 transition-all"
+                className="p-5 rounded-xl bg-black/50 backdrop-blur-sm border border-[#d4a359]/25 flex flex-col justify-between hover:border-[#d4a359]/60 transition-all shadow-md"
               >
                 <p className="text-xs text-stone-200/90 font-sans leading-relaxed mb-4">
                   "{note.text}"
