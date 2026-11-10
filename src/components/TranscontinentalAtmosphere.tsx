@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import rioImg from '../assets/atmosphere/rio-sunset.jpg';
-import watArunImg from '../assets/atmosphere/wat-arun.jpg';
+import seamlessFusionImg from '../assets/atmosphere/transcontinental-seamless-fusion.jpg';
 import lanternsImg from '../assets/atmosphere/yi-peng-lanterns.jpg';
 import amazoniaImg from '../assets/atmosphere/amazonia-sanctuary.jpg';
 import buddhaImg from '../assets/atmosphere/buddha-temple.jpg';
@@ -21,9 +20,9 @@ interface AtmosphereOption {
 const ATMOSPHERES: AtmosphereOption[] = [
   {
     id: 'fusion',
-    namePt: 'Fusão Dourada (Rio ⇄ Bangkok)',
-    nameTh: 'ทไวไลท์ ริโอ ⇄ กรุงเทพฯ',
-    subtitle: 'Pão de Açúcar & Wat Arun no crepúsculo dourado',
+    namePt: 'Fusão Panorâmica (Rio ⇄ Bangkok)',
+    nameTh: 'ทไวไลท์ ริโอ ⇄ กรุงเทพฯ ไร้รอยต่อ',
+    subtitle: 'Pão de Açúcar e Templos de Wat Arun fundidos organicamente',
     icon: Sun,
   },
   {
@@ -68,36 +67,22 @@ export const TranscontinentalAtmosphere: React.FC = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#0a0712]">
       {/* =========================================================================
-          CAMADA 1: FUSÃO DOURADA VÍVIDA (RIO DE JANEIRO ⇄ BANGKOK WAT ARUN)
-          Cores quentes, vivas, nítidas em 8K sem bloqueio escuro
+          CAMADA 1 (PRINCIPAL): FUSÃO PANORÂMICA TOTALMENTE CONTÍNUA
+          Sem cortes, sem divisão no meio, fusão orgânica de cinema 8K
       ========================================================================== */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
           mode === 'fusion' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        {/* Lado Esquerdo: Rio de Janeiro / Pão de Açúcar ao Entardecer */}
-        <div className="absolute inset-y-0 left-0 w-[55%] lg:w-[58%] overflow-hidden">
-          <img
-            src={rioImg}
-            alt="Rio de Janeiro e Pão de Açúcar ao Entardecer"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-100 lg:scale-105"
-          />
-          <div className="absolute inset-y-0 right-0 w-24 lg:w-48 bg-gradient-to-r from-transparent to-[#0a0712]/80" />
-        </div>
+        <img
+          src={seamlessFusionImg}
+          alt="Paisagem Panorâmica Transcontinental: Rio de Janeiro e Bangkok Unidos em Luz Dourada"
+          className="w-full h-full object-cover object-[center_35%] filter brightness-[0.97] contrast-[1.1] saturate-[1.28] transform scale-100 lg:scale-105"
+        />
 
-        {/* Lado Direito: Bangkok Wat Arun ao Pôr do Sol */}
-        <div className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%] overflow-hidden">
-          <img
-            src={watArunImg}
-            alt="Wat Arun e o Rio Chao Phraya em Bangkok"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-100 lg:scale-105"
-          />
-          <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-l from-transparent to-[#0a0712]/80" />
-        </div>
-
-        {/* Leve vinheta cinematográfica de borda (preservando o centro 100% vivo) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
+        {/* Suave vinheta cinematográfica de borda, preservando 100% da nitidez central */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(229,184,105,0.12)_0%,transparent_65%)] pointer-events-none" />
       </div>
 
@@ -119,29 +104,31 @@ export const TranscontinentalAtmosphere: React.FC = () => {
       </div>
 
       {/* =========================================================================
-          CAMADA 3: AMAZÔNIA & BUDA SAGRADO
+          CAMADA 3: AMAZÔNIA & BUDA SAGRADO (FUSÃO SUAVE POR MÁSCARA ORGÂNICA)
       ========================================================================== */}
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
           mode === 'sanctuary' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="absolute inset-y-0 left-0 w-[55%] lg:w-[58%] overflow-hidden">
-          <img
-            src={amazoniaImg}
-            alt="Floresta Amazônica Tropical"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-105"
-          />
-          <div className="absolute inset-y-0 right-0 w-24 lg:w-48 bg-gradient-to-r from-transparent to-[#0a0712]/80" />
+        <div className="absolute inset-0 flex">
+          <div className="w-1/2 h-full overflow-hidden">
+            <img
+              src={amazoniaImg}
+              alt="Floresta Amazônica Tropical"
+              className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.12] saturate-[1.3]"
+            />
+          </div>
+          <div className="w-1/2 h-full overflow-hidden">
+            <img
+              src={buddhaImg}
+              alt="Grande Buda Dourado e Templos Sagrados da Tailândia"
+              className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.12] saturate-[1.3]"
+            />
+          </div>
         </div>
-        <div className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%] overflow-hidden">
-          <img
-            src={buddhaImg}
-            alt="Grande Buda Dourado e Templos Sagrados da Tailândia"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.12] saturate-[1.3] transform scale-105"
-          />
-          <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-l from-transparent to-[#0a0712]/80" />
-        </div>
+        {/* Soft center feathering overlay to guarantee zero harsh borders */}
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-64 bg-gradient-to-r from-transparent via-[#0a0712]/90 to-transparent pointer-events-none blur-lg" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
       </div>
 
@@ -153,22 +140,24 @@ export const TranscontinentalAtmosphere: React.FC = () => {
           mode === 'metropolis' ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="absolute inset-y-0 left-0 w-[55%] lg:w-[58%] overflow-hidden">
-          <img
-            src={saoPauloImg}
-            alt="São Paulo Skyline Noturno"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.15] saturate-[1.3] transform scale-105"
-          />
-          <div className="absolute inset-y-0 right-0 w-24 lg:w-48 bg-gradient-to-r from-transparent to-[#0a0712]/80" />
+        <div className="absolute inset-0 flex">
+          <div className="w-1/2 h-full overflow-hidden">
+            <img
+              src={saoPauloImg}
+              alt="São Paulo Skyline Noturno"
+              className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.15] saturate-[1.3]"
+            />
+          </div>
+          <div className="w-1/2 h-full overflow-hidden">
+            <img
+              src={bangkokImg}
+              alt="Bangkok Metrópole Iluminada"
+              className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.15] saturate-[1.3]"
+            />
+          </div>
         </div>
-        <div className="absolute inset-y-0 right-0 w-[55%] lg:w-[58%] overflow-hidden">
-          <img
-            src={bangkokImg}
-            alt="Bangkok Metrópole Iluminada"
-            className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.15] saturate-[1.3] transform scale-105"
-          />
-          <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-l from-transparent to-[#0a0712]/80" />
-        </div>
+        {/* Soft center feathering overlay to guarantee zero harsh borders */}
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-64 bg-gradient-to-r from-transparent via-[#0a0712]/90 to-transparent pointer-events-none blur-lg" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55 pointer-events-none" />
       </div>
 
